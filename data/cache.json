@@ -1,0 +1,181 @@
+{
+    "e6c95a72199298de92e6fd49dc74c2df5b4be73c42df8c9bc10cf28eafa31bfd": "Resposta gerada pelo modelo",
+    "9f39ecb3284a729b535a1b7f6c1b3ff56266e338d838e1d7ade5c0674e0d5d92": {
+        "input": {
+            "pergunta": "Explique o que \u00e9 a Teoria da Terra Plana.",
+            "topico": "Ci\u00eancias / Astronomia / Pensamento cr\u00edtico e natureza da ci\u00eancia",
+            "nivel de complexidade": "B\u00e1sico a intermedi\u00e1rio (\u00eanfase conceitual e pedag\u00f3gica)",
+            "requested_content": [
+                "explica\u00e7\u00e3o conceitual em 4 etapas (intui\u00e7\u00e3o inicial, conceito formal, exemplo guiado, conex\u00e3o com conhecimento pr\u00e9vio)",
+                "pontos-chave",
+                "pratical_examples",
+                "prompts_imagem",
+                "reflective_questions"
+            ]
+        },
+        "output": {
+            "titulo": "Teoria da Terra Plana: o que \u00e9, como se sustenta e como analis\u00e1-la criticamente",
+            "pontos_chave": [
+                "A \u201cTeoria da Terra Plana\u201d \u00e9 um conjunto de cren\u00e7as que afirma que a Terra n\u00e3o \u00e9 aproximadamente esf\u00e9rica, mas plana (ou com geometria alternativa).",
+                "Ela se apoia, em geral, em interpreta\u00e7\u00f5es do senso comum (como \u201co ch\u00e3o parece plano\u201d) e em desconfian\u00e7a de institui\u00e7\u00f5es cient\u00edficas.",
+                "Na ci\u00eancia, modelos s\u00e3o avaliados por evid\u00eancias, previs\u00f5es verific\u00e1veis e consist\u00eancia com muitos fen\u00f4menos (sat\u00e9lites, fusos hor\u00e1rios, eclipses, navega\u00e7\u00e3o, etc.).",
+                "Distinguir ci\u00eancia de pseudoci\u00eancia envolve observar m\u00e9todo, abertura a refuta\u00e7\u00e3o, qualidade das evid\u00eancias e capacidade preditiva.",
+                "Experimentos simples e observa\u00e7\u00f5es do cotidiano (como sombras em diferentes cidades) ajudam a conectar o tema ao pensamento cient\u00edfico."
+            ],
+            "explicacao_conceitual": [
+                {
+                    "etapa": "1. Intui\u00e7\u00e3o inicial",
+                    "texto": "\u00c9 comum que, no dia a dia, a Terra pare\u00e7a plana: caminhamos sobre uma superf\u00edcie que n\u00e3o \u201ccurva\u201d visivelmente, e o horizonte parece uma linha reta. A Teoria da Terra Plana parte muito dessa intui\u00e7\u00e3o e de experi\u00eancias pessoais (vis\u00e3o do horizonte, sensa\u00e7\u00e3o de imobilidade), interpretando-as como prova de que a Terra n\u00e3o \u00e9 um globo. \n\nPara estudar esse tema com cuidado, \u00e9 \u00fatil lembrar que nossa percep\u00e7\u00e3o tem limites: enxergamos dist\u00e2ncias relativamente pequenas em compara\u00e7\u00e3o ao tamanho do planeta. Por isso, uma pergunta pedag\u00f3gica importante \u00e9: como transformamos uma impress\u00e3o (parece plano) em conhecimento confi\u00e1vel? Aqui entram observa\u00e7\u00f5es mais controladas e compara\u00e7\u00f5es entre diferentes evid\u00eancias (como no Exemplo guiado e nos Practical_examples)."
+                },
+                {
+                    "etapa": "2. Conceito formal",
+                    "texto": "De modo formal, \u201cTeoria da Terra Plana\u201d (mais frequentemente tratada como uma cren\u00e7a ou movimento, e n\u00e3o como teoria cient\u00edfica) \u00e9 a ideia de que a Terra \u00e9 plana (em vez de aproximadamente esf\u00e9rica/oblata) e que explica\u00e7\u00f5es cient\u00edficas aceitas \u2014 como gravidade, \u00f3rbitas e imagens de sat\u00e9lite \u2014 seriam falsas, manipuladas ou mal interpretadas.\n\nNa ci\u00eancia, o termo \u201cteoria\u201d tem um significado espec\u00edfico: um sistema explicativo amplo, sustentado por evid\u00eancias robustas, que faz previs\u00f5es e \u00e9 test\u00e1vel. No uso cotidiano, \u201cteoria\u201d pode significar apenas \u201cideia\u201d ou \u201chip\u00f3tese\u201d. Esse contraste \u00e9 central: a Terra esf\u00e9rica \u00e9 apoiada por m\u00faltiplas linhas independentes de evid\u00eancia (observa\u00e7\u00f5es astron\u00f4micas, f\u00edsica, geod\u00e9sia, navega\u00e7\u00e3o, telecomunica\u00e7\u00f5es), enquanto a Terra plana, em geral, n\u00e3o apresenta um modelo unificado que explique com a mesma consist\u00eancia e capacidade preditiva esses fen\u00f4menos.\n\nAo analisar a Terra Plana, \u00e9 produtivo aplicar crit\u00e9rios de pensamento cr\u00edtico: (a) que evid\u00eancias s\u00e3o apresentadas? (b) essas evid\u00eancias podem ser verificadas por outras pessoas? (c) a explica\u00e7\u00e3o faz previs\u00f5es novas e test\u00e1veis? (d) o modelo explica bem uma grande variedade de fen\u00f4menos sem contradi\u00e7\u00f5es?"
+                },
+                {
+                    "etapa": "3. Exemplo guiado",
+                    "texto": "Vamos usar um exemplo cl\u00e1ssico de verifica\u00e7\u00e3o por observa\u00e7\u00e3o: sombras em lugares diferentes.\n\nPasso A \u2014 Pergunta: Se a Terra fosse plana, o Sol deveria iluminar postes/objetos verticais de modo muito semelhante em locais diferentes no mesmo hor\u00e1rio (dependendo do modelo), gerando sombras com \u00e2ngulos iguais ou explica\u00e7\u00f5es simples e consistentes para diferen\u00e7as.\n\nPasso B \u2014 Observa\u00e7\u00e3o: Em cidades diferentes, no mesmo momento, as sombras podem ter comprimentos e dire\u00e7\u00f5es diferentes. Isso sugere que a luz solar chega com \u00e2ngulos diferentes em lugares distintos.\n\nPasso C \u2014 Interpreta\u00e7\u00e3o: No modelo esf\u00e9rico, isso \u00e9 esperado porque a superf\u00edcie \u00e9 curva; em uma esfera, \u201cvertical\u201d muda de dire\u00e7\u00e3o conforme o local. Esse tipo de evid\u00eancia se conecta a um racioc\u00ednio geom\u00e9trico simples e pode ser replicado (ver Practical_examples).\n\nPasso D \u2014 Conclus\u00e3o pedag\u00f3gica: O valor do exemplo n\u00e3o \u00e9 \u201cganhar um debate\u201d, mas aprender como se constr\u00f3i uma explica\u00e7\u00e3o: comparar modelos, checar previs\u00f5es e buscar consist\u00eancia. Para aprofundar, use as Reflective_questions para avaliar a qualidade das fontes e o que conta como evid\u00eancia."
+                },
+                {
+                    "etapa": "4. Conex\u00e3o com conhecimento pr\u00e9vio",
+                    "texto": "Voc\u00ea provavelmente j\u00e1 estudou ou vivenciou ideias que se conectam diretamente a este tema:\n\n\u2022 Geometria e \u00e2ngulos: a ideia de medir \u00e2ngulos de sombras (como no Exemplo guiado) usa conceitos b\u00e1sicos de tri\u00e2ngulos e proporcionalidade.\n\n\u2022 Fen\u00f4menos cotidianos e escala: algo pode parecer plano localmente e ainda assim ser curvo em escala maior (como uma estrada que parece reta perto de voc\u00ea, mas acompanha a curvatura de uma colina distante). Isso ajuda a entender por que a intui\u00e7\u00e3o inicial pode enganar.\n\n\u2022 Natureza da ci\u00eancia: ci\u00eancia n\u00e3o depende de uma \u00fanica prova, mas de um conjunto coerente de evid\u00eancias. Quando voc\u00ea conecta observa\u00e7\u00f5es (sombras, fusos hor\u00e1rios, eclipses) a um modelo capaz de prever e explicar tudo isso, voc\u00ea est\u00e1 fazendo o tipo de integra\u00e7\u00e3o que a ci\u00eancia exige.\n\nPara consolidar, escolha um dos Practical_examples e responda \u00e0s Reflective_questions: isso ajuda a ligar o conte\u00fado ao que voc\u00ea j\u00e1 sabe e a praticar crit\u00e9rios de valida\u00e7\u00e3o de conhecimento."
+                }
+            ],
+            "pratical_examples": [
+                {
+                    "titulo": "Experimento das sombras (estilo Erat\u00f3stenes, vers\u00e3o escolar)",
+                    "materiais": [
+                        "1 haste reta (ou l\u00e1pis) e um suporte para deix\u00e1-la vertical",
+                        "fita m\u00e9trica ou r\u00e9gua",
+                        "rel\u00f3gio/celular",
+                        "opcional: um colega em outra cidade"
+                    ],
+                    "passos": [
+                        "Ao meio-dia solar aproximado (ou no mesmo hor\u00e1rio combinado), me\u00e7a o comprimento da sombra de uma haste vertical.",
+                        "Registre o local (cidade) e o hor\u00e1rio exato.",
+                        "Compare com a medi\u00e7\u00e3o de outra cidade no mesmo hor\u00e1rio.",
+                        "Discuta qual modelo (plano vs esf\u00e9rico) explica melhor a diferen\u00e7a de \u00e2ngulos/comprimentos."
+                    ],
+                    "o_que_observar": [
+                        "Diferen\u00e7as sistem\u00e1ticas no comprimento/\u00e2ngulo das sombras conforme a latitude/dist\u00e2ncia entre cidades.",
+                        "Reprodutibilidade: outras pessoas conseguem obter resultados compat\u00edveis?"
+                    ]
+                },
+                {
+                    "titulo": "Observa\u00e7\u00e3o de fusos hor\u00e1rios e posi\u00e7\u00e3o do Sol",
+                    "materiais": [
+                        "mapa-m\u00fandi com fusos hor\u00e1rios",
+                        "acesso a sites de nascer/p\u00f4r do sol (opcional)"
+                    ],
+                    "passos": [
+                        "Escolha duas cidades em longitudes bem diferentes.",
+                        "Compare os hor\u00e1rios locais e verifique se uma est\u00e1 de dia enquanto a outra est\u00e1 de noite.",
+                        "Relacione isso \u00e0 ideia de rota\u00e7\u00e3o da Terra e ilumina\u00e7\u00e3o solar."
+                    ],
+                    "o_que_observar": [
+                        "Como o padr\u00e3o global de dia/noite se organiza de modo consistente em um globo em rota\u00e7\u00e3o.",
+                        "Dificuldades de explicar o mesmo padr\u00e3o com um modelo plano sem ajustes ad hoc (explica\u00e7\u00f5es improvisadas para cada caso)."
+                    ]
+                },
+                {
+                    "titulo": "Eclipses e a sombra da Terra",
+                    "materiais": [
+                        "v\u00eddeos confi\u00e1veis de eclipses lunares",
+                        "uma lanterna e uma bola (para simula\u00e7\u00e3o simples)"
+                    ],
+                    "passos": [
+                        "Observe registros de eclipses lunares (quando a Terra projeta sombra na Lua).",
+                        "Note o formato da sombra ao longo do tempo.",
+                        "Simule com lanterna (Sol) e bola (Terra) projetando sombra."
+                    ],
+                    "o_que_observar": [
+                        "A sombra projetada pela Terra aparece circular de forma consistente, compat\u00edvel com um corpo aproximadamente esf\u00e9rico."
+                    ]
+                }
+            ],
+            "prompts_imagem": [
+                "Infogr\u00e1fico educativo em portugu\u00eas mostrando: 1) pessoa observando o horizonte e pensando que a Terra \u00e9 plana; 2) zoom out revelando a curvatura da Terra em escala; estilo clean, cores suaves, r\u00f3tulos claros, alta legibilidade.",
+                "Diagrama comparativo lado a lado: modelo Terra esf\u00e9rica vs modelo Terra plana, com raios solares e postes verticais em duas cidades; mostrando sombras com \u00e2ngulos diferentes; estilo de livro did\u00e1tico, linhas finas, fundo branco, texto em portugu\u00eas.",
+                "Ilustra\u00e7\u00e3o passo a passo do experimento de Erat\u00f3stenes escolar: haste vertical, medi\u00e7\u00e3o de sombra com r\u00e9gua, duas cidades no mapa conectadas por uma linha, \u00e2ngulos marcados; estilo vetorial, minimalista, legendas em portugu\u00eas.",
+                "Mapa-m\u00fandi com zonas de dia e noite (terminador) e fusos hor\u00e1rios, destacando duas cidades em hor\u00e1rios diferentes; estilo infogr\u00e1fico moderno, alto contraste, r\u00f3tulos em portugu\u00eas.",
+                "Ilustra\u00e7\u00e3o de eclipse lunar: Sol, Terra e Lua alinhados, mostrando a sombra da Terra circular projetada na Lua; estilo did\u00e1tico, fundo escuro, r\u00f3tulos em portugu\u00eas."
+            ],
+            "reflective_questions": [
+                "Quando algo \u201cparece\u201d verdadeiro (como a Terra parecer plana), que tipos de evid\u00eancia voc\u00ea considera suficientes para confirmar ou revisar essa impress\u00e3o?",
+                "Qual \u00e9 a diferen\u00e7a entre \u201cteoria\u201d no senso comum e \u201cteoria\u201d no sentido cient\u00edfico? Por que isso importa neste tema?",
+                "No Exemplo guiado das sombras, que resultado voc\u00ea esperaria em um modelo plano e que resultado voc\u00ea esperaria em um modelo esf\u00e9rico?",
+                "O que torna uma explica\u00e7\u00e3o cient\u00edfica mais forte: ter uma \u00fanica evid\u00eancia impactante ou conseguir integrar muitas evid\u00eancias diferentes sem contradi\u00e7\u00e3o?",
+                "Como voc\u00ea avalia a confiabilidade de uma fonte (v\u00eddeo, post, document\u00e1rio)? Que sinais indicam rigor e que sinais indicam manipula\u00e7\u00e3o?",
+                "Se um modelo precisa criar uma exce\u00e7\u00e3o nova para cada observa\u00e7\u00e3o contr\u00e1ria, isso fortalece ou enfraquece o modelo? Por qu\u00ea?"
+            ],
+            "path_imagens": [
+                "data/historico/images_1772402166",
+                [
+                    "data/historico/images_1772402166/image_0.png",
+                    "data/historico/images_1772402166/image_1.png",
+                    "data/historico/images_1772402166/image_2.png",
+                    "data/historico/images_1772402166/image_3.png",
+                    "data/historico/images_1772402166/image_4.png"
+                ]
+            ]
+        }
+    },
+    "484827e3fa2c9acfe8934293d91b2ad43def9548096ee917abcafd1ce266a406": {
+        "input": {
+            "pergunta": "Explique o que \u00e9 a Teoria da Terra Plana.",
+            "topico": "Astronomia / Hist\u00f3ria e filosofia da ci\u00eancia / Pseudoci\u00eancia",
+            "nivel de complexidade": "B\u00e1sico a intermedi\u00e1rio",
+            "requested_content": [
+                "explica\u00e7\u00e3o conceitual",
+                "exemplos pr\u00e1ticos",
+                "perguntas reflexivas"
+            ]
+        },
+        "output": {
+            "titulo": "Teoria da Terra Plana: o que \u00e9, no que se baseia e como \u00e9 avaliada pela ci\u00eancia",
+            "pontos_chave": [
+                "A \u201cTeoria da Terra Plana\u201d \u00e9 um conjunto de cren\u00e7as que afirma que a Terra n\u00e3o \u00e9 aproximadamente esf\u00e9rica, mas plana (geralmente como um disco).",
+                "Historicamente, a ideia de Terra plana existiu em algumas culturas antigas, mas o modelo esf\u00e9rico tornou-se amplamente aceito desde a Antiguidade por evid\u00eancias observacionais.",
+                "O movimento moderno da Terra plana \u00e9 classificado como pseudoci\u00eancia: prop\u00f5e conclus\u00f5es e depois seleciona evid\u00eancias, em vez de testar hip\u00f3teses de forma consistente e aberta a refuta\u00e7\u00e3o.",
+                "Explica\u00e7\u00f5es t\u00edpicas da Terra plana incluem: Ant\u00e1rtida como \u201cmuro de gelo\u201d ao redor do disco, Sol e Lua pequenos e pr\u00f3ximos, e rejei\u00e7\u00e3o (ou reinterpreta\u00e7\u00e3o) de imagens e medi\u00e7\u00f5es feitas por sat\u00e9lites.",
+                "A ci\u00eancia avalia modelos pelo poder explicativo, previs\u00f5es verific\u00e1veis e consist\u00eancia com um grande conjunto de observa\u00e7\u00f5es; o modelo esf\u00e9rico explica e prev\u00ea fen\u00f4menos como fusos hor\u00e1rios, esta\u00e7\u00f5es, eclipses e rotas a\u00e9reas.",
+                "Erros comuns no debate incluem confundir percep\u00e7\u00e3o local (horizonte parecer \u201cplano\u201d) com geometria global e desconsiderar medi\u00e7\u00f5es independentes e repet\u00edveis.",
+                "Experimentos simples e observa\u00e7\u00f5es cotidianas (como navios \u201csumindo\u201d no horizonte e constela\u00e7\u00f5es diferentes por latitude) ajudam a conectar a explica\u00e7\u00e3o conceitual a evid\u00eancias (ver exemplos pr\u00e1ticos)."
+            ],
+            "pratical_examples": [
+                {
+                    "exemplo": "Navios e o horizonte (curvatura aparente)",
+                    "como_fazer": [
+                        "Observe um navio (ou barco) se afastando em um dia com boa visibilidade, de prefer\u00eancia pr\u00f3ximo ao n\u00edvel do mar.",
+                        "Note que a parte inferior do casco tende a desaparecer antes do mastro/superestrutura.",
+                        "Compare com a expectativa de um plano infinito, onde o navio apenas ficaria menor de forma proporcional, sem \u201csumir por baixo\u201d primeiro."
+                    ],
+                    "o_que_esperar": "O desaparecimento progressivo \u201cde baixo para cima\u201d \u00e9 compat\u00edvel com uma superf\u00edcie curva e dif\u00edcil de explicar apenas por perspectiva em todas as condi\u00e7\u00f5es."
+                },
+                {
+                    "exemplo": "Constela\u00e7\u00f5es diferentes em latitudes diferentes",
+                    "como_fazer": [
+                        "Converse com algu\u00e9m que mora bem ao norte/sul da sua latitude (ou use registros/planisf\u00e9rios celestes de outras latitudes).",
+                        "Compare quais constela\u00e7\u00f5es s\u00e3o vis\u00edveis e a altura delas no c\u00e9u ao longo do ano."
+                    ],
+                    "o_que_esperar": "Em um globo, a visibilidade do c\u00e9u muda com a latitude (por exemplo, o Cruzeiro do Sul \u00e9 melhor observado no hemisf\u00e9rio sul). Isso aparece de forma consistente em observa\u00e7\u00f5es independentes."
+                },
+                {
+                    "exemplo": "Sombras em locais diferentes (inspira\u00e7\u00e3o no experimento de Erat\u00f3stenes)",
+                    "como_fazer": [
+                        "Em um mesmo dia e hor\u00e1rio, me\u00e7a a sombra de um objeto vertical (como uma vara) em duas cidades diferentes (ou use dados compartilhados).",
+                        "Compare os \u00e2ngulos das sombras e a dist\u00e2ncia aproximada entre as cidades."
+                    ],
+                    "o_que_esperar": "Diferen\u00e7as sistem\u00e1ticas nos \u00e2ngulos, combinadas com a dist\u00e2ncia, permitem estimar a circunfer\u00eancia da Terra\u2014uma previs\u00e3o natural do modelo esf\u00e9rico."
+                }
+            ],
+            "reflective_questions": [
+                "Que tipo de evid\u00eancia faria voc\u00ea mudar de ideia sobre a forma da Terra? Como diferenciar uma evid\u00eancia test\u00e1vel de uma afirma\u00e7\u00e3o n\u00e3o verific\u00e1vel?",
+                "Por que o horizonte pode parecer plano localmente mesmo que a Terra seja curva globalmente?",
+                "Quando duas explica\u00e7\u00f5es competem (Terra plana vs. esf\u00e9rica), quais crit\u00e9rios ajudam a decidir: simplicidade, poder preditivo, consist\u00eancia com m\u00faltiplas observa\u00e7\u00f5es, possibilidade de refuta\u00e7\u00e3o?",
+                "Como o m\u00e9todo cient\u00edfico lida com discord\u00e2ncias: quais medidas independentes e repet\u00edveis poderiam ser feitas por diferentes pessoas para testar as mesmas previs\u00f5es?",
+                "Ao analisar v\u00eddeos e argumentos da internet, como identificar sele\u00e7\u00e3o de evid\u00eancias (cherry-picking), erros de escala e confus\u00f5es entre percep\u00e7\u00e3o e medi\u00e7\u00e3o?"
+            ]
+        },
+        "grade": 9.5
+    }
+}

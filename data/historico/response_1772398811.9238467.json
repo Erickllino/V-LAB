@@ -1,0 +1,122 @@
+{
+    "user data": {
+        "user_id": "user123"
+    },
+    "input": {
+        "pergunta": "Explique o que \u00e9 a Teoria da Terra Plana.",
+        "prompt": "\n            Responda tudo no seguinte formato JSON;\n\n            {\n            \"input\": \n                {\"pergunta\": \"\",\n                \"topico\": \"\",\n                \"nivel de complexidade\": \"\",\n                \"requested_content\": []\n                },\n            \"output\":\n                {\"titulo\": \"\",\n                \"pontos_chave\": []\n                }\n            }\n\n\n    \n    \n    Adicione explica\u00e7\u00e3o conceitual sobre a pergunta feita, para ajudar o estudante, mantenha as explica\u00e7\u00f5es em ordem e caso haja practical_examples ou reflection_questions, fa\u00e7a refer\u00eancia a elas na explica\u00e7\u00e3o, para criar uma resposta mais coesa e integrada\n\n    Adicionando estrutura JSON base; adicione o seguinte campo no output\n    {\n        ...\n        \"output\":{\n            ...\n            \"pratical_examples\": []\n        }\n    }\n    \n    \n    Adicione prompts que irao gerar imagens para acompanhar a explica\u00e7\u00e3o\n\n    Adicionando estrutura JSON base; adicione o seguinte campo no output\n    {\n        ...\n        \"output\":{\n            ...\n            \"prompts_imagem\": []\n        }\n    }\n    \n    \n    Adicione perguntas que irao acompanhar a explica\u00e7\u00e3o, para estimular o pensamento cr\u00edtico e a reflex\u00e3o do estudante sobre o conte\u00fado explicado\n\n    Adicionando estrutura JSON base; adicione o seguinte campo no output\n    {\n        ...\n        \"output\":{\n            ...\n            \"reflective_questions\": []\n        }\n    }\n    \n    \n    Adicione exemplos praticos que irao acompanhar a explica\u00e7\u00e3o, para ajudar o estudante a entender melhor o conceito explicado\n\n    Adicionando estrutura JSON base; adicione o seguinte campo no output\n    {\n        ...\n        \"output\":{\n            ...\n            \"pratical_examples\": []\n        }\n    }\n    Voc\u00ea \u00e9 um professor experiente em Pedagogia. Explique a seguinte pergunta: Explique o que \u00e9 a Teoria da Terra Plana. seguindo esta estrutura:\n    1. Intui\u00e7\u00e3o inicial\n    2. Conceito formal\n    3. Exemplo guiado\n    4. Conex\u00e3o com conhecimento pr\u00e9vio\n\n\n    ",
+        "prompt_model": "v1"
+    },
+    "output": {
+        "input": {
+            "pergunta": "Explique o que \u00e9 a Teoria da Terra Plana.",
+            "topico": "Ci\u00eancia, pensamento cr\u00edtico e hist\u00f3ria das ideias (Terra Plana vs. modelo esf\u00e9rico)",
+            "nivel de complexidade": "B\u00e1sico a intermedi\u00e1rio (\u00eanfase em alfabetiza\u00e7\u00e3o cient\u00edfica e an\u00e1lise cr\u00edtica)",
+            "requested_content": [
+                "explica\u00e7\u00e3o conceitual em 4 etapas (intui\u00e7\u00e3o inicial, conceito formal, exemplo guiado, conex\u00e3o com conhecimento pr\u00e9vio)",
+                "pontos-chave",
+                "exemplos pr\u00e1ticos",
+                "perguntas reflexivas",
+                "prompts para gerar imagens"
+            ]
+        },
+        "output": {
+            "titulo": "Teoria da Terra Plana: o que \u00e9, como se organiza e como analis\u00e1-la criticamente",
+            "pontos_chave": [
+                "A \u201cTeoria da Terra Plana\u201d (hoje, em geral, um movimento) defende que a Terra n\u00e3o \u00e9 aproximadamente esf\u00e9rica, mas plana, e interpreta evid\u00eancias de modo alternativo ao consenso cient\u00edfico.",
+                "Ela se sustenta em argumentos sobre percep\u00e7\u00e3o cotidiana (horizonte \u201creto\u201d), desconfian\u00e7a de institui\u00e7\u00f5es e explica\u00e7\u00f5es pr\u00f3prias para gravidade, Sol/Lua, e fen\u00f4menos astron\u00f4micos.",
+                "Na ci\u00eancia, modelos s\u00e3o avaliados por evid\u00eancias m\u00faltiplas, previs\u00f5es verific\u00e1veis e consist\u00eancia com observa\u00e7\u00f5es independentes.",
+                "H\u00e1 muitas linhas de evid\u00eancia simples e acess\u00edveis que sustentam a Terra aproximadamente esf\u00e9rica (ex.: sombra em eclipses, varia\u00e7\u00e3o de constela\u00e7\u00f5es com latitude, fusos hor\u00e1rios, navega\u00e7\u00e3o, curvatura observ\u00e1vel em certas condi\u00e7\u00f5es).",
+                "Pensamento cr\u00edtico envolve checar fontes, distinguir hip\u00f3tese de evid\u00eancia, buscar explica\u00e7\u00f5es que funcionem em v\u00e1rios contextos e testar previs\u00f5es (ver exemplos pr\u00e1ticos)."
+            ],
+            "explicacao": [
+                {
+                    "etapa": "1. Intui\u00e7\u00e3o inicial",
+                    "texto": "No dia a dia, \u00e9 comum olhar ao redor e sentir que o ch\u00e3o \u00e9 plano e o horizonte parece uma linha reta. Essa experi\u00eancia imediata (percep\u00e7\u00e3o) pode levar algumas pessoas a pensar: \u201cSe eu n\u00e3o vejo curvatura, ent\u00e3o a Terra deve ser plana\u201d. A Teoria da Terra Plana se apoia muito nessa intui\u00e7\u00e3o e, frequentemente, acrescenta uma postura de desconfian\u00e7a em rela\u00e7\u00e3o a institui\u00e7\u00f5es cient\u00edficas e imagens de sat\u00e9lite.\n\nPara transformar intui\u00e7\u00e3o em conhecimento confi\u00e1vel, a ci\u00eancia pede algo a mais: observar em diferentes situa\u00e7\u00f5es, medir e comparar explica\u00e7\u00f5es. Nos exemplos pr\u00e1ticos (veja em \u201cpratical_examples\u201d), a ideia \u00e9 justamente sair da impress\u00e3o inicial e testar o que cada modelo consegue explicar."
+                },
+                {
+                    "etapa": "2. Conceito formal",
+                    "texto": "A chamada \u201cTeoria da Terra Plana\u201d \u00e9 um conjunto de cren\u00e7as e propostas que afirmam que a Terra \u00e9 plana (geralmente representada como um disco) e que muitos fen\u00f4menos naturais\u2014como dia e noite, esta\u00e7\u00f5es do ano, eclipses e a gravidade\u2014precisariam de explica\u00e7\u00f5es diferentes daquelas aceitas pela ci\u00eancia.\n\nNo modelo cient\u00edfico atual (Terra aproximadamente esf\u00e9rica, ligeiramente achatada nos polos), h\u00e1 consist\u00eancia entre v\u00e1rias \u00e1reas: f\u00edsica (gravidade), astronomia (movimento aparente do Sol e das estrelas), geografia (fusos hor\u00e1rios), engenharia (sat\u00e9lites), navega\u00e7\u00e3o (rotas a\u00e9reas e mar\u00edtimas).\n\nUm ponto pedag\u00f3gico importante: a ci\u00eancia n\u00e3o \u00e9 \u201copini\u00e3o de autoridade\u201d; \u00e9 um m\u00e9todo. Um modelo \u00e9 mais forte quando:\n- explica muitos fatos com a mesma ideia central;\n- faz previs\u00f5es test\u00e1veis;\n- mant\u00e9m coer\u00eancia com medi\u00e7\u00f5es independentes.\n\nAo analisar a Terra Plana, vale perguntar: quais previs\u00f5es ela faz e como elas se comparam \u00e0s observa\u00e7\u00f5es? As perguntas reflexivas (veja \u201creflective_questions\u201d) ajudam a orientar essa avalia\u00e7\u00e3o cr\u00edtica."
+                },
+                {
+                    "etapa": "3. Exemplo guiado",
+                    "texto": "Vamos usar um exemplo guiado para entender como comparar modelos.\n\nExemplo (Eclipses lunares):\n1) Observa\u00e7\u00e3o: em um eclipse lunar, a sombra que a Terra projeta na Lua aparece arredondada.\n2) Pergunta: que formato de objeto produz uma sombra sempre circular, independentemente da orienta\u00e7\u00e3o?\n3) An\u00e1lise: uma esfera produz uma sombra circular em qualquer posi\u00e7\u00e3o; j\u00e1 um disco plano tende a produzir sombras que variam muito com o \u00e2ngulo (e, em muitos \u00e2ngulos, n\u00e3o seriam circulares).\n4) Conclus\u00e3o provis\u00f3ria: essa observa\u00e7\u00e3o favorece o modelo esf\u00e9rico.\n\nEsse racioc\u00ednio n\u00e3o depende de foto de sat\u00e9lite: depende de observar, comparar e ver qual modelo explica melhor. Para ampliar essa an\u00e1lise, voc\u00ea pode aplicar o mesmo \u201cpasso a passo\u201d a outros testes simples listados nos exemplos pr\u00e1ticos, como: varia\u00e7\u00e3o das constela\u00e7\u00f5es com a latitude ou o experimento de sombras em duas cidades (inspirado em Erat\u00f3stenes).\n\nRepare que o objetivo do exemplo n\u00e3o \u00e9 \u201cvencer um debate\u201d, mas praticar alfabetiza\u00e7\u00e3o cient\u00edfica: como uma evid\u00eancia apoia (ou enfraquece) um modelo."
+                },
+                {
+                    "etapa": "4. Conex\u00e3o com conhecimento pr\u00e9vio",
+                    "texto": "Voc\u00ea provavelmente j\u00e1 conhece algumas ideias que se conectam diretamente a este tema:\n\n- Geografia (mapas e globos): mapas planos s\u00e3o representa\u00e7\u00f5es de uma superf\u00edcie curva; por isso existem diferentes proje\u00e7\u00f5es cartogr\u00e1ficas, cada uma com distor\u00e7\u00f5es.\n- Movimento do Sol no c\u00e9u: em diferentes \u00e9pocas do ano e latitudes, o Sol nasce e se p\u00f5e em posi\u00e7\u00f5es diferentes no horizonte, o que se relaciona com a inclina\u00e7\u00e3o do eixo da Terra e sua forma.\n- Fusos hor\u00e1rios: quando \u00e9 meio-dia em um lugar, \u00e9 madrugada em outro; isso combina naturalmente com um planeta aproximadamente esf\u00e9rico iluminado pelo Sol.\n- Experi\u00eancias do cotidiano: navios \u201csumindo\u201d no horizonte, mudan\u00e7as na altura de estrelas como a Estrela Polar conforme viajamos ao norte/sul.\n\nEssas conex\u00f5es ficam mais claras quando voc\u00ea realiza (ou simula) ao menos um dos exemplos pr\u00e1ticos e responde \u00e0s perguntas reflexivas: o que o seu resultado prev\u00ea? O que voc\u00ea esperaria ver se a Terra fosse plana? O que voc\u00ea esperaria ver se fosse aproximadamente esf\u00e9rica?"
+                }
+            ],
+            "pratical_examples": [
+                {
+                    "titulo": "Sombras em duas cidades (estilo Erat\u00f3stenes, vers\u00e3o escolar)",
+                    "objetivo": "Comparar previs\u00f5es dos modelos plano vs. esf\u00e9rico usando medidas simples.",
+                    "materiais": [
+                        "1 bast\u00e3o reto (ou l\u00e1pis) por local",
+                        "trena/r\u00e9gua",
+                        "rel\u00f3gio (ou hor\u00e1rio solar aproximado)",
+                        "celular para registrar dados",
+                        "parceiro em outra cidade (ou uso de dados online de uma cidade diferente)"
+                    ],
+                    "passos": [
+                        "No mesmo dia e hor\u00e1rio local pr\u00f3ximo ao meio-dia solar, me\u00e7a o tamanho da sombra do bast\u00e3o em dois locais com latitudes diferentes.",
+                        "Registre altura do bast\u00e3o e comprimento da sombra.",
+                        "Compare os \u00e2ngulos estimados (pode usar: \u00e2ngulo \u2248 arctan(altura/sombra) ou apenas comparar propor\u00e7\u00f5es)."
+                    ],
+                    "o_que_observar": [
+                        "No modelo esf\u00e9rico, \u00e2ngulos diferentes em latitudes diferentes s\u00e3o esperados.",
+                        "No modelo de Terra plana, seria necess\u00e1rio explicar por que os \u00e2ngulos mudam sistematicamente com a latitude e como isso se mant\u00e9m consistente em muitos locais."
+                    ]
+                },
+                {
+                    "titulo": "Constela\u00e7\u00f5es mudam com a latitude",
+                    "objetivo": "Observar que o c\u00e9u vis\u00edvel depende da posi\u00e7\u00e3o na Terra.",
+                    "materiais": [
+                        "Aplicativo de mapa do c\u00e9u (opcional)",
+                        "registros (fotos/relatos) de pessoas em diferentes regi\u00f5es"
+                    ],
+                    "passos": [
+                        "Compare quais constela\u00e7\u00f5es s\u00e3o vis\u00edveis no hemisf\u00e9rio norte e no hemisf\u00e9rio sul na mesma \u00e9poca do ano.",
+                        "Observe a altura da Estrela Polar (no hemisf\u00e9rio norte) conforme se viaja para norte ou sul."
+                    ],
+                    "o_que_observar": [
+                        "No modelo esf\u00e9rico, o c\u00e9u muda com a latitude de maneira previs\u00edvel.",
+                        "Um modelo plano precisa propor uma geometria alternativa que explique por que certas estrelas deixam de ser vis\u00edveis e por que outras surgem."
+                    ]
+                },
+                {
+                    "titulo": "Eclipse lunar: forma da sombra",
+                    "objetivo": "Usar um evento astron\u00f4mico para inferir geometria.",
+                    "materiais": [
+                        "registro de eclipse (ao vivo, v\u00eddeo confi\u00e1vel ou sequ\u00eancia de fotos)",
+                        "papel e caneta"
+                    ],
+                    "passos": [
+                        "Observe o contorno da sombra projetada na Lua durante o eclipse.",
+                        "Desenhe o formato observado e discuta quais objetos produzem sombra circular em v\u00e1rias orienta\u00e7\u00f5es."
+                    ],
+                    "o_que_observar": [
+                        "Sombra arredondada e consistente favorece um corpo aproximadamente esf\u00e9rico."
+                    ]
+                }
+            ],
+            "prompts_imagem": [
+                "Ilustra\u00e7\u00e3o did\u00e1tica em estilo infogr\u00e1fico, mostrando a intui\u00e7\u00e3o do horizonte reto e a ideia de curvatura da Terra, com uma pessoa em uma praia olhando para o horizonte, setas explicativas, cores suaves, alta legibilidade, fundo limpo, sem texto pequeno demais",
+                "Infogr\u00e1fico comparativo: modelo Terra esf\u00e9rica vs. modelo Terra plana (disco), com tr\u00eas pain\u00e9is: fusos hor\u00e1rios, trajet\u00f3rias aparentes do Sol, e linhas de latitude; estilo escolar, cores contrastantes, \u00edcones simples, sem marcas d'\u00e1gua",
+                "Diagrama do experimento de Erat\u00f3stenes: dois bast\u00f5es em cidades diferentes, raios solares paralelos, \u00e2ngulos de sombra, curvatura da Terra ao fundo; estilo desenho cient\u00edfico, linhas claras, r\u00f3tulos grandes",
+                "Sequ\u00eancia ilustrada de um eclipse lunar: Terra entre Sol e Lua, mostrando a sombra circular da Terra na Lua; estilo educacional, com setas indicando luz e sombra, alta resolu\u00e7\u00e3o"
+            ],
+            "reflective_questions": [
+                "Quais observa\u00e7\u00f5es do cotidiano (horizonte, sensa\u00e7\u00e3o de \u201cch\u00e3o plano\u201d) podem ser enganosas quando falamos de escalas muito grandes? Por qu\u00ea?",
+                "Se voc\u00ea tivesse que escolher apenas um teste simples (sem sat\u00e9lites) para comparar Terra plana e Terra esf\u00e9rica, qual escolheria e quais resultados esperaria em cada modelo?",
+                "Como diferenciar \u201cuma explica\u00e7\u00e3o que parece fazer sentido\u201d de \u201cuma explica\u00e7\u00e3o que faz previs\u00f5es e resiste a testes independentes\u201d?",
+                "Que tipo de evid\u00eancia seria forte o suficiente para voc\u00ea mudar de ideia sobre a forma da Terra? O que contaria como evid\u00eancia fraca?",
+                "Ao encontrar um v\u00eddeo ou postagem defendendo a Terra plana, quais perguntas sobre fonte, m\u00e9todo e possibilidade de verifica\u00e7\u00e3o voc\u00ea faria antes de acreditar?"
+            ],
+            "path_imagens": "data/historico/image_John Doe_1772398810"
+        },
+        "grade": 9.5
+    },
+    "grade": 9.5,
+    "timestamp": 1772398811.9238467
+}

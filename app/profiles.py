@@ -1,6 +1,6 @@
 
 
-
+import hashlib
 import json
 
 
@@ -27,6 +27,8 @@ def format_data(name,senha, idade, nivel_conhecimento, estilo_aprendizado, ):
     with open("data/student_profiles.json", "w") as f:
         json.dump({name: profile_data}, f, indent=4)
 
+def hash_password(password):
+    return hashlib.sha256(password.encode()).hexdigest()
 
 def register_user_profile(user_id, profile_data):
 
@@ -41,7 +43,9 @@ def register_user_profile(user_id, profile_data):
     if user_id in profiles:
         raise ValueError("User ID already exists")
 
+    profile_data["senha"] = hash_password(profile_data["senha"])
     profiles[user_id] = profile_data
+
 
     with open("data/student_profiles.json", "w") as f:
         json.dump(profiles, f, indent=4)
