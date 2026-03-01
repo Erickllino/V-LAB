@@ -1,0 +1,9 @@
+{
+    "user123": {
+        "name": "John Doe",
+        "idade": 25,
+        "nivel de conhecimento": "iniciante",
+        "estilo de aprendizagem": "visual",
+        "senha": "hashed_password"
+    }
+}
