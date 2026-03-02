@@ -8,14 +8,28 @@
     },
     "kek": {
         "name": "joao",
-        "idade": "22",
+        "idade": 22,
         "nivel de conhecimento": "iniciante",
         "estilo de aprendizagem": "leitura-escrita",
         "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
     },
     "kok": {
         "name": "joao",
-        "idade": "11",
+        "idade": 11,
+        "nivel de conhecimento": "iniciante",
+        "estilo de aprendizagem": "leitura-escrita",
+        "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
+    },
+    "tiberio": {
+        "name": "tiberio",
+        "idade": 61,
+        "nivel de conhecimento": "avancado",
+        "estilo de aprendizagem": "cinestesico",
+        "senha": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"
+    },
+    "hacker": {
+        "name": "cara ruim",
+        "idade": 11,
         "nivel de conhecimento": "iniciante",
         "estilo de aprendizagem": "leitura-escrita",
         "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
