@@ -40,3 +40,16 @@ Basta conectar este repositório ao Vercel, definir as variáveis de ambiente (`
 - O formulário de dashboard aceita um tópico e tenta invocar o motor de prompt para
   gerar resultados, gravando um histórico em `data/`.
 
+
+
+
+
+
+# TODO LIST:
+
+1 - GERAR VARIOS OUTPUTS
+2 - MELHORAR FRONT
+3 - DAR DEPLOY EM VERCEL
+4 - FAZER README.md
+5 - FAZER PROMPT_ENGINEERING_NOTES.md
+6 - DEBUGGIN :(

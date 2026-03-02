@@ -84,6 +84,7 @@ SUSPICIOUS_PATTERNS = [
 
 LARGE_MODEL = "gpt-5.2"
 SMALL_MODEL = "gpt-3.5-turbo"
+SECURITY_MODEL = LARGE_MODEL
 
 """
 
@@ -149,7 +150,7 @@ def run_prompt_model(user_id, question, prompt_model=None):
         
 
     print("Modelo de Prompt usado para geração:", prompt_model)
-    # TODO: Aprimorar esse base prompt
+    
 
     """
     Primeiro prompt que será enviado para o modelo, para determinar quais tipos de conteúdo solicitado (requested_content) são mais adequados para responder a pergunta do usuário, baseado no perfil do usuário e na pergunta feita, para criar uma resposta mais personalizada e adequada ao perfil do estudante, e também para criar um feedback loop para o modelo melhorar a escolha do requested_content baseado no feedback do estudante sobre a resposta gerada
@@ -257,15 +258,16 @@ def conceptual_explanation(user_id, question):
         ...
         "output":{{
             ...
-            "pratical_examples": []
+            "conceptual_explanation": [{{"Titulo: "" ,"Conteudo": "" }}, ..."]
         }}
     }}
+
+    Todas as explicações conceituais devem estar na forma de: {"Titulo": "", "Conteudo": ""} 
     """
     return pratical_prompt
 
 def practical_examples(user_id, question):
     profile = get_user_profile(user_id)
-    # TODO: Colocar modelo para como deve ser cada exemplo prático, para que o modelo fique padronizado
     pratical_prompt = f"""
     
     Adicione exemplos praticos que irao acompanhar a explicação, para ajudar o estudante a entender melhor o conceito explicado
@@ -275,9 +277,11 @@ def practical_examples(user_id, question):
         ...
         "output":{{
             ...
-            "pratical_examples": []
+            "pratical_examples": [{{"Titulo: "" ,"Conteudo": "" }}, ..."]
         }}
     }}
+
+    Todos os exemplos praticos devem estar na forma de: {"Titulo": "", "Conteudo": ""}
     """
     return pratical_prompt
 
@@ -292,9 +296,11 @@ def reflection_questions(user_id, question):
         ...
         "output":{{
             ...
-            "reflective_questions": []
+            "reflective_questions": [{{"Titulo: "" ,"Conteudo": "" }}, ..."]
         }}
     }}
+    
+    Todas as perguntas reflexivas devem estar na forma de: {"Titulo": "", "Conteudo": ""}
     """
     return reflective_prompt
 
@@ -327,9 +333,10 @@ def model_v1(profile, question, base_prompt):
 
 def model_v2(profile, question, base_prompt):
     prompt = f"""
-    Você é um professor experiente com didatica impecavel. 
-    O estudante tem {profile['idade']} anos, nível de conhecimento {profile['nivel de conhecimento']} e estilo de aprendizagem {profile['estilo de aprendizagem']}. De acordo com essas informações escolha os requested_content mais adequados para responder a seguinte pergunta: {question}
-     E responda a pergunta seguindo o formato de output especificado no base prompt, adaptando
+    Você é um professor experiente com didática impecável. 
+    O estudante que você ensinará tem {profile['idade']} anos, nível de conhecimento {profile['nivel de conhecimento']} e estilo de aprendizagem {profile['estilo de aprendizagem']}.
+    De acordo com essas informações ensine o aluno tudo sobre a seguinte pergunta: {question}
+    E responda a pergunta seguindo o formato de output especificado no base prompt
     """
     prompt = base_prompt + prompt
     response = generate_response(prompt)
@@ -457,10 +464,6 @@ Retorne somente a nota com o valor numerico, sem nada mais. O valor pode ser um 
     grade = float(grade)  # converter a nota para float, caso seja decimal
     return grade
 
-
-
-
-
 def check_input(user_id,prompt: str) -> str:
 
     # TODO: implementar função para segurança do prompt, para evitar injeção de prompt ou outros ataques
@@ -517,7 +520,13 @@ def check_input(user_id,prompt: str) -> str:
     {prompt}
     ---
     """
-    classification = generate_response(check_prompt)
+    if SECURITY_MODEL == LARGE_MODEL: 
+        classification = generate_response(check_prompt)
+    elif SECURITY_MODEL == SMALL_MODEL:
+        classification = generate_response_small_model(check_prompt)
+    else:
+        # Caso queira testar diferentes modelos para a segurança podemos adicionar uma função so para ele
+        classification = generate_response(check_prompt)
 
     print(f"classification result for prompt: {classification.strip()}")
     print("Prompt verificado e considerado seguro.")
@@ -545,23 +554,15 @@ def log_attempt(user_id, prompt):
     log_file = os.path.join(log_dir, f"user_{user_id}_{timestamp}.json")
     with open(log_file, "a") as f:
         f.write(log_data_str + "\n")
-    
-
-
-
-    
-
+     
 def save_response_as_sample(response):
     
-    response_data = {
-        "titulo": response.get("titulo", ""),
-        "explicacao": response.get("explicacao", ""),
-        "pontos_chave": response.get("pontos_chave", []),
-        "nivel_complexidade": response.get("nivel_complexidade", "")
-    }
+    # TODO:Check if response is on the right format (json):
+
 
     with open("samples/response.json", "w") as f:
-        json.dump(response_data, f, indent=4)
+        json.dump(response, f, indent=4)
+
 
 def save_response_to_history(user, pergunta, prompt, prompt_model, response, grade, timestamp=None):
     # TODO: add grade from grader function to the response data
@@ -750,6 +751,6 @@ def infer_engine(user, pergunta, prompt_model):
         
         return response, images
         
-
+# TODO: Adicionar um metodo para comparar prompts e determinar qual é o melhor
 
     
