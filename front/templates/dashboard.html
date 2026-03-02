@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dashboard</h2>
+<form method="post">
+    <label>Tópico:<input type="text" name="topic"></label><br>
+    <button type="submit">Gerar conteúdo</button>
+</form>
+{% if response %}
+<h3>Resultado</h3>
+<pre>{{ response|tojson(indent=2) }}</pre>
+{% endif %}
+{% endblock %}

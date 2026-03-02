@@ -33,5 +33,19 @@
         "nivel de conhecimento": "iniciante",
         "estilo de aprendizagem": "leitura-escrita",
         "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
+    },
+    "usdad": {
+        "name": "cara",
+        "idade": "12",
+        "nivel de conhecimento": "iniciante",
+        "estilo de aprendizagem": "leitura-escrita",
+        "senha": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5"
+    },
+    "Jobsvaldo123": {
+        "name": "Jobsvaldo",
+        "idade": "22",
+        "nivel de conhecimento": "iniciante",
+        "estilo de aprendizagem": "auditivo",
+        "senha": "83dbef1f87bac650d5cd57ee6fbc384d6fe9b15860ed374ab9b1be65850c51fd"
     }
 }
