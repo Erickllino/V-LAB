@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import json
+import base64
 
 # ensure project root and the "app" subfolder are on path so we can import existing modules
 root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -93,8 +94,20 @@ def dashboard():
         try:
             # the backend helpers expect sanitized input
             question = pe.check_input(user, question)
-            prompt_model = pe.determine_prompt_model(user, question)
+            chosen = request.form.get("prompt_model", "auto")
+            if chosen and chosen != "auto":
+                prompt_model = chosen
+            else:
+                prompt_model = pe.determine_prompt_model(user, question)
             response, images = pe.infer_engine(user, question, prompt_model)
+            if isinstance(response, dict):
+                response["prompt_model"] = prompt_model
+            # converte bytes para base64 string para renderizar no template
+            images = [
+                base64.b64encode(img).decode() if isinstance(img, (bytes, bytearray)) else img
+                for img in (images or [])
+                if img
+            ]
 
         except Exception as e:
             # generation may fail if model not configured

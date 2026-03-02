@@ -1,9 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Login</h2>
-<form method="post">
-    <label>User ID:<input type="text" name="user_id"></label><br>
-    <label>Senha:<input type="password" name="senha"></label><br>
-    <button type="submit">Entrar</button>
-</form>
+<style>
+    .auth-card {
+        max-width: 400px;
+        margin: 3rem auto;
+    }
+    .auth-card h2 { margin-bottom: 1.5rem; color: var(--primary); }
+    .auth-footer { margin-top: 1rem; font-size: .88rem; color: var(--muted); text-align: center; }
+    .auth-footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
+</style>
+
+<div class="auth-card card">
+    <h2>Entrar</h2>
+    <form method="post">
+        <label for="user_id">User ID</label>
+        <input type="text" id="user_id" name="user_id" placeholder="seu_id" required>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="••••••••" required>
+
+        <button type="submit" style="width:100%;justify-content:center;">Entrar</button>
+    </form>
+    <p class="auth-footer">Não tem conta? <a href="{{ url_for('register') }}">Registre-se</a></p>
+</div>
 {% endblock %}

@@ -1,13 +1,61 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Register</h2>
-<form method="post">
-    <label>User ID:<input type="text" name="user_id"></label><br>
-    <label>Senha:<input type="password" name="senha"></label><br>
-    <label>Nome:<input type="text" name="nome"></label><br>
-    <label>Idade:<input type="text" name="idade"></label><br>
-    <label>Nível de conhecimento:<input type="text" name="nivel"></label><br>
-    <label>Estilo de aprendizagem:<input type="text" name="estilo"></label><br>
-    <button type="submit">Registrar</button>
-</form>
+<style>
+    .auth-card {
+        max-width: 460px;
+        margin: 2.5rem auto;
+    }
+    .auth-card h2 { margin-bottom: 1.5rem; color: var(--primary); }
+    .auth-footer { margin-top: 1rem; font-size: .88rem; color: var(--muted); text-align: center; }
+    .auth-footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    .row { display: flex; gap: .75rem; }
+    .row .field { flex: 1; }
+</style>
+
+<div class="auth-card card">
+    <h2>Criar conta</h2>
+    <form method="post">
+        <div class="row">
+            <div class="field">
+                <label for="user_id">User ID</label>
+                <input type="text" id="user_id" name="user_id" placeholder="seu_id" required>
+            </div>
+            <div class="field">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="••••••••" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="field">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+            </div>
+            <div class="field">
+                <label for="idade">Idade</label>
+                <input type="text" id="idade" name="idade" placeholder="Ex.: 22" required>
+            </div>
+        </div>
+
+        <label for="nivel">Nível de conhecimento</label>
+        <select id="nivel" name="nivel" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="iniciante">Iniciante</option>
+            <option value="intermediario">Intermediário</option>
+            <option value="avancado">Avançado</option>
+        </select>
+
+        <label for="estilo">Estilo de aprendizagem</label>
+        <select id="estilo" name="estilo" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="visual">Visual</option>
+            <option value="auditivo">Auditivo</option>
+            <option value="leitura-escrita">Leitura-escrita</option>
+            <option value="cinestesico">Cinestésico</option>
+        </select>
+
+        <button type="submit" style="width:100%;justify-content:center;">Criar conta</button>
+    </form>
+    <p class="auth-footer">Já tem conta? <a href="{{ url_for('login') }}">Faça login</a></p>
+</div>
 {% endblock %}

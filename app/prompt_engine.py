@@ -726,8 +726,17 @@ def infer_engine(user, pergunta, prompt_model):
     cached_response = cache.get_cached_response(user, pergunta, prompt_model)
     if cached_response:
         print("Resposta encontrada no cache:")
-        
-        return cached_response
+        # Reconstrói lista de imagens a partir dos arquivos salvos em disco
+        images_from_cache = []
+        path_imagens = cached_response.get("output", {}).get("path_imagens", {})
+        for img_dir, img_paths in path_imagens.items():
+            for path in (img_paths or []):
+                try:
+                    with open(path, "rb") as f:
+                        images_from_cache.append(f.read())
+                except (OSError, TypeError):
+                    pass
+        return cached_response, images_from_cache
         
     else:
         print("Gerando nova resposta...")
@@ -749,7 +758,7 @@ def infer_engine(user, pergunta, prompt_model):
         # se houver imagens geradas, salve-as e adicione caminho à resposta
         if images:
             images_dir, images_path = save_image_to_history(images, user, timestamp=timestamp)
-            response["output"]["path_imagens"][images_dir] = images_path
+            response.setdefault("output", {})["path_imagens"] = {images_dir: images_path}
 
         print("Resposta gerada:", response)
 

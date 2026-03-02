@@ -1,0 +1,102 @@
+{
+    "user data": {
+        "user_id": "Jobsvaldo123"
+    },
+    "input": {
+        "pergunta": "Me explique a teoria da Terra esferica",
+        "prompt": "\n            Responda tudo no seguinte formato JSON;\n\n            {\n            \"input\": \n                {\"pergunta\": \"\",\n                \"topico\": \"\",\n                \"nivel de complexidade\": \"\",\n                \"requested_content\": []\n                },\n            \"output\":\n                {\"titulo\": \"\",\n                \"pontos_chave\": []\n                }\n            }\n\n\n    \n    \n    Adicione explica\u00e7\u00e3o conceitual sobre a pergunta feita, para ajudar o estudante, mantenha as explica\u00e7\u00f5es em ordem e caso haja practical_examples ou reflection_questions, fa\u00e7a refer\u00eancia a elas na explica\u00e7\u00e3o, para criar uma resposta mais coesa e integrada\n\n    Adicionando estrutura JSON base; adicione o seguinte campo no output\n    {\n        ...\n        \"output\":{\n            ...\n            \"conceptual_explanation\": [{\"Titulo: \"\" ,\"Conteudo\": \"\" }, ...\"]\n        }\n    }\n\n    Todas as explica\u00e7\u00f5es conceituais devem estar na forma de: {\"Titulo\": \"\", \"Conteudo\": \"\"} \n    \n    \n    Adicione exemplos praticos que irao acompanhar a explica\u00e7\u00e3o, para ajudar o estudante a entender melhor o conceito explicado\n\n    Adicionando estrutura JSON base; adicione o seguinte campo no output\n    {\n        ...\n        \"output\":{\n            ...\n            \"pratical_examples\": [{\"Titulo: \"\" ,\"Conteudo\": \"\" }, ...]\n        }\n    }\n\n    Todos os exemplos praticos devem estar na forma de: {\"Titulo\": \"\", \"Conteudo\": \"\"}\n    \n    \n    Adicione perguntas que irao acompanhar a explica\u00e7\u00e3o, para estimular o pensamento cr\u00edtico e a reflex\u00e3o do estudante sobre o conte\u00fado explicado\n\n    Adicionando estrutura JSON base; adicione o seguinte campo no output\n    {\n        ...\n        \"output\":{\n            ...\n            \"reflective_questions\": [{\"Titulo: \"\" ,\"Conteudo\": \"\" }, ...\"]\n        }\n    }\n    \n    Todas as perguntas reflexivas devem estar na forma de: {\"Titulo\": \"\", \"Conteudo\": \"\"}\n    \n    Responda a seguinte pergunta: Me explique a teoria da Terra esferica\n    ",
+        "prompt_model": "v1"
+    },
+    "output": {
+        "input": {
+            "pergunta": "Me explique a teoria da Terra esferica",
+            "topico": "Ci\u00eancias / Astronomia e Geoci\u00eancias",
+            "nivel de complexidade": "B\u00e1sico a intermedi\u00e1rio",
+            "requested_content": [
+                "explica\u00e7\u00e3o conceitual",
+                "exemplos pr\u00e1ticos",
+                "perguntas reflexivas"
+            ]
+        },
+        "output": {
+            "titulo": "Teoria da Terra Esf\u00e9rica: por que sabemos que a Terra \u00e9 (quase) uma esfera",
+            "pontos_chave": [
+                "A Terra n\u00e3o \u00e9 perfeitamente esf\u00e9rica: \u00e9 um esferoide oblato (ligeiramente achatada nos polos e abaulada no equador).",
+                "A ideia de Terra esf\u00e9rica \u00e9 antiga e foi apoiada por observa\u00e7\u00f5es simples: sombra em eclipses, navios no horizonte e mudan\u00e7a das estrelas com a latitude.",
+                "A gravidade tende a \u201cpuxar\u201d a mat\u00e9ria para um equil\u00edbrio aproximadamente esf\u00e9rico em corpos grandes, formando um formato arredondado.",
+                "Erat\u00f3stenes estimou o tamanho da Terra na Antiguidade usando sombras em duas cidades diferentes.",
+                "Evid\u00eancias modernas incluem fotos de sat\u00e9lites, medi\u00e7\u00f5es geod\u00e9sicas, GPS, \u00f3rbitas e a possibilidade de circunavega\u00e7\u00e3o.",
+                "A curvatura da Terra pode ser medida e modelada matematicamente, com previs\u00f5es test\u00e1veis."
+            ],
+            "conceptual_explanation": [
+                {
+                    "Titulo": "1) O que significa dizer que a Terra \u00e9 esf\u00e9rica (e o que ela \u00e9 de fato)",
+                    "Conteudo": "Quando dizemos \u201cTerra esf\u00e9rica\u201d, estamos afirmando que a superf\u00edcie do planeta tem curvatura global e se aproxima de uma esfera. Por\u00e9m, a forma mais correta \u00e9 \u201cesferoide oblato\u201d: a Terra \u00e9 um pouco achatada nos polos e ligeiramente mais larga no equador, principalmente por causa da rota\u00e7\u00e3o. Essa distin\u00e7\u00e3o \u00e9 importante porque a teoria n\u00e3o depende de uma esfera perfeita, e sim de um formato global arredondado e mensur\u00e1vel. Nos exemplos pr\u00e1ticos (ver 'Pr\u00e1tico 4' e 'Pr\u00e1tico 5'), essa curvatura aparece em observa\u00e7\u00f5es de horizonte e em medi\u00e7\u00f5es/tecnologias como GPS."
+                },
+                {
+                    "Titulo": "2) Por que corpos grandes tendem a ser arredondados: gravidade e equil\u00edbrio",
+                    "Conteudo": "Em escalas planet\u00e1rias, a gravidade puxa a mat\u00e9ria em dire\u00e7\u00e3o ao centro de massa. Se o corpo \u00e9 grande o suficiente, as irregularidades (montanhas, vales) n\u00e3o conseguem \u201csustentar\u201d formas muito alongadas sem que o pr\u00f3prio peso cause deforma\u00e7\u00e3o ao longo do tempo geol\u00f3gico. O resultado \u00e9 um formato pr\u00f3ximo do que chamamos de \u201cequil\u00edbrio hidrost\u00e1tico\u201d: um corpo globalmente arredondado. A rota\u00e7\u00e3o adiciona um efeito centr\u00edfugo que favorece o abaulamento no equador, explicando o esferoide oblato."
+                },
+                {
+                    "Titulo": "3) Evid\u00eancias cl\u00e1ssicas (observa\u00e7\u00f5es acess\u00edveis) da curvatura da Terra",
+                    "Conteudo": "H\u00e1 evid\u00eancias observ\u00e1veis sem tecnologia avan\u00e7ada: (a) em eclipses lunares, a sombra projetada pela Terra na Lua \u00e9 sempre circular, o que \u00e9 compat\u00edvel com um corpo esf\u00e9rico visto de v\u00e1rios \u00e2ngulos; (b) navios (ou pr\u00e9dios distantes) \u201csomem por baixo\u201d no horizonte: primeiro desaparece a parte inferior, depois a superior, como no 'Pr\u00e1tico 1'; (c) as constela\u00e7\u00f5es vis\u00edveis mudam com a latitude: ao viajar para norte/sul, algumas estrelas sobem ou descem no c\u00e9u, coerente com uma superf\u00edcie curva, como no 'Pr\u00e1tico 3'. Essas observa\u00e7\u00f5es n\u00e3o s\u00e3o apenas \u201cimpress\u00f5es\u201d: elas permitem previs\u00f5es test\u00e1veis (por exemplo, quais estrelas ser\u00e3o vis\u00edveis em certas latitudes)."
+                },
+                {
+                    "Titulo": "4) O experimento de Erat\u00f3stenes: medindo o tamanho da Terra com sombras",
+                    "Conteudo": "Erat\u00f3stenes (s\u00e9culo III a.C.) comparou a sombra de um objeto vertical (como um bast\u00e3o) em duas cidades diferentes no mesmo hor\u00e1rio e dia. Em uma cidade, o Sol estava quase a pino (sombra m\u00ednima); na outra, havia uma sombra com um certo \u00e2ngulo. Esse \u00e2ngulo corresponde a uma fra\u00e7\u00e3o do c\u00edrculo completo (360\u00b0). Se voc\u00ea sabe a dist\u00e2ncia aproximada entre as cidades e mede o \u00e2ngulo, pode estimar a circunfer\u00eancia da Terra. Esse m\u00e9todo mostra que a teoria \u00e9 quantitativa: n\u00e3o \u00e9 s\u00f3 'achar que \u00e9 redonda', mas medir e obter um valor coerente. Veja 'Pr\u00e1tico 2' para uma vers\u00e3o moderna desse procedimento."
+                },
+                {
+                    "Titulo": "5) Evid\u00eancias modernas e valida\u00e7\u00e3o cruzada (sat\u00e9lites, GPS e geod\u00e9sia)",
+                    "Conteudo": "Hoje, diversas \u00e1reas independentes confirmam a forma da Terra: imagens e dados de sat\u00e9lites, a din\u00e2mica de \u00f3rbitas, medi\u00e7\u00f5es geod\u00e9sicas do campo gravitacional e o funcionamento do GPS. O GPS, por exemplo, depende de modelos precisos da Terra e de corre\u00e7\u00f5es relativ\u00edsticas para fornecer posi\u00e7\u00e3o com precis\u00e3o. O importante \u00e9 a valida\u00e7\u00e3o cruzada: m\u00e9todos diferentes (astronomia, f\u00edsica, engenharia) chegam ao mesmo quadro. Isso refor\u00e7a a robustez da teoria. No 'Pr\u00e1tico 5', voc\u00ea pode observar como a curvatura aparece at\u00e9 em c\u00e1lculos simples de visibilidade no horizonte."
+                }
+            ],
+            "pratical_examples": [
+                {
+                    "Titulo": "Pr\u00e1tico 1) Observando o \u201cdesaparecer no horizonte\u201d",
+                    "Conteudo": "Em um local plano (praia ou campo aberto), observe um barco se afastando (ou carros numa estrada muito reta e distante). Voc\u00ea notar\u00e1 que a parte inferior some antes da superior. Para refor\u00e7ar, use um bin\u00f3culo: ele aumenta a imagem, mas n\u00e3o 'traz de volta' a parte inferior j\u00e1 escondida pela curvatura\u2014o que seria esperado se fosse apenas limita\u00e7\u00e3o de vis\u00e3o. Isso se conecta \u00e0 explica\u00e7\u00e3o conceitual 3."
+                },
+                {
+                    "Titulo": "Pr\u00e1tico 2) Recriando Erat\u00f3stenes com duas cidades",
+                    "Conteudo": "Combine com algu\u00e9m em outra cidade relativamente distante (idealmente mais ao norte/sul de voc\u00ea). No mesmo dia e hor\u00e1rio (pr\u00f3ximo ao meio-dia solar), ambos medem o \u00e2ngulo da sombra de um bast\u00e3o vertical: \u00e2ngulo \u2248 arctan(comprimento_da_sombra / altura_do_bast\u00e3o). Com a diferen\u00e7a de \u00e2ngulos e a dist\u00e2ncia aproximada entre as cidades, estime a circunfer\u00eancia: C \u2248 (360\u00b0 / diferen\u00e7a_em_graus) \u00d7 dist\u00e2ncia. Compare com ~40.000 km. Isso se conecta \u00e0 explica\u00e7\u00e3o conceitual 4."
+                },
+                {
+                    "Titulo": "Pr\u00e1tico 3) Mudan\u00e7a das estrelas com a latitude (experimento observacional)",
+                    "Conteudo": "Se voc\u00ea viajar para uma latitude diferente (ou comparar com algu\u00e9m em outra regi\u00e3o), observe a altura de uma estrela/constela\u00e7\u00e3o no horizonte. Em geral, a altura do polo celeste (pr\u00f3ximo \u00e0 Estrela Polar no hemisf\u00e9rio norte) muda aproximadamente com a latitude. Mesmo sem viajar, voc\u00ea pode comparar suas observa\u00e7\u00f5es com registros/fotos de pessoas em outras latitudes. Isso se conecta \u00e0 explica\u00e7\u00e3o conceitual 3."
+                },
+                {
+                    "Titulo": "Pr\u00e1tico 4) Sombra da Terra em eclipse lunar (quando ocorrer)",
+                    "Conteudo": "Em um eclipse lunar, observe a borda da sombra da Terra avan\u00e7ando sobre a Lua: ela \u00e9 curva. A circularidade da sombra \u00e9 consistente com um corpo esf\u00e9rico. Voc\u00ea pode acompanhar hor\u00e1rios e imagens do evento e comparar com simula\u00e7\u00f5es astron\u00f4micas. Isso se conecta \u00e0 explica\u00e7\u00e3o conceitual 3."
+                },
+                {
+                    "Titulo": "Pr\u00e1tico 5) C\u00e1lculo simples do horizonte (curvatura mensur\u00e1vel)",
+                    "Conteudo": "Uma aproxima\u00e7\u00e3o \u00fatil: a dist\u00e2ncia at\u00e9 o horizonte (em km) \u2248 3,57 \u00d7 \u221a(altura_em_metros). Ex.: a 4 m de altura, horizonte \u2248 3,57 \u00d7 \u221a4 = 7,14 km. Essa f\u00f3rmula deriva da geometria de um corpo aproximadamente esf\u00e9rico com raio ~6371 km. Ela se conecta \u00e0s explica\u00e7\u00f5es conceituais 1 e 5, mostrando como um modelo de Terra arredondada gera previs\u00f5es num\u00e9ricas."
+                }
+            ],
+            "reflective_questions": [
+                {
+                    "Titulo": "Reflex\u00e3o 1) O que conta como evid\u00eancia forte?",
+                    "Conteudo": "Entre observa\u00e7\u00f5es diretas (horizonte), medi\u00e7\u00f5es (Erat\u00f3stenes) e tecnologias (GPS), quais voc\u00ea considera mais convincentes e por qu\u00ea? O que torna uma evid\u00eancia \u201cmelhor\u201d do ponto de vista cient\u00edfico?"
+                },
+                {
+                    "Titulo": "Reflex\u00e3o 2) Previs\u00f5es test\u00e1veis",
+                    "Conteudo": "Se a Terra fosse plana, quais previs\u00f5es diferentes voc\u00ea esperaria sobre: (a) como navios somem no horizonte; (b) como as estrelas mudam com a latitude; (c) rotas de voo e dist\u00e2ncias? Quais dessas previs\u00f5es voc\u00ea conseguiria testar com dados p\u00fablicos?"
+                },
+                {
+                    "Titulo": "Reflex\u00e3o 3) Valida\u00e7\u00e3o cruzada",
+                    "Conteudo": "Por que \u00e9 importante que v\u00e1rias \u00e1reas independentes (astronomia, f\u00edsica, engenharia) cheguem ao mesmo resultado sobre a forma da Terra? Como isso aumenta a confian\u00e7a na conclus\u00e3o?"
+                },
+                {
+                    "Titulo": "Reflex\u00e3o 4) Limites e aproxima\u00e7\u00f5es",
+                    "Conteudo": "A Terra \u00e9 um esferoide oblato, n\u00e3o uma esfera perfeita. Em que situa\u00e7\u00f5es uma esfera \u00e9 uma boa aproxima\u00e7\u00e3o? Em que situa\u00e7\u00f5es voc\u00ea precisaria do modelo mais preciso (geod\u00e9sico)?"
+                },
+                {
+                    "Titulo": "Reflex\u00e3o 5) Ci\u00eancia como processo",
+                    "Conteudo": "O experimento de Erat\u00f3stenes mostra que \u00e9 poss\u00edvel medir algo enorme com instrumentos simples. O que isso ensina sobre o m\u00e9todo cient\u00edfico e sobre como constru\u00edmos conhecimento a partir de observa\u00e7\u00f5es?"
+                }
+            ]
+        },
+        "grade": 9.6
+    },
+    "grade": 9.6,
+    "timestamp": 1772488169
+}

@@ -1,12 +1,670 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<h2>Dashboard</h2>
+<style>
+    /* ── Dashboard layout ── */
+    .dash-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+        gap: .75rem;
+    }
+
+    .dash-header h1 { font-size: 1.5rem; }
+
+    /* ── Topic form ── */
+    .topic-form {
+        display: flex;
+        gap: .75rem;
+        margin-bottom: 2rem;
+        align-items: flex-end;
+        flex-wrap: wrap;
+    }
+
+    .topic-form .field { flex: 1; min-width: 220px; }
+    .topic-form label { margin-bottom: .35rem; }
+    .topic-form input[type="text"] { margin-bottom: 0; }
+
+    /* ── Model selector dropdown ── */
+    .model-details {
+        margin-bottom: 1.5rem;
+    }
+
+    .model-summary {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        cursor: pointer;
+        list-style: none;
+        font-size: .88rem;
+        font-weight: 600;
+        color: var(--muted);
+        padding: .45rem .85rem;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        transition: border-color .15s, color .15s;
+        user-select: none;
+    }
+
+    .model-summary::-webkit-details-marker { display: none; }
+    .model-summary::marker { display: none; }
+
+    .model-summary:hover { border-color: #a5b4fc; color: var(--primary); }
+
+    .model-details[open] .model-summary {
+        border-color: var(--primary);
+        color: var(--primary);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-color: transparent;
+    }
+
+    .model-summary .summary-chevron {
+        margin-left: .15rem;
+        transition: transform .2s;
+        font-size: .75rem;
+    }
+
+    .model-details[open] .summary-chevron { transform: rotate(180deg); }
+
+    .model-dropdown-panel {
+        border: 1px solid var(--primary);
+        border-top: none;
+        border-radius: 0 8px 8px 8px;
+        padding: .85rem;
+        background: var(--surface);
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+    }
+
+    .model-selector input[type="radio"] { display: none; }
+
+    .model-option {
+        flex: 1;
+        min-width: 120px;
+        border: 2px solid var(--border);
+        border-radius: 10px;
+        padding: .65rem .85rem;
+        cursor: pointer;
+        transition: border-color .15s, background .15s;
+        background: var(--bg);
+        user-select: none;
+    }
+
+    .model-option:hover { border-color: #a5b4fc; background: #f5f3ff; }
+
+    .model-selector input[type="radio"]:checked + .model-option {
+        border-color: var(--primary);
+        background: var(--primary-light);
+    }
+
+    .model-option .mo-tag {
+        font-size: .72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        color: var(--primary);
+        margin-bottom: .25rem;
+    }
+
+    .model-option .mo-name {
+        font-size: .88rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: .2rem;
+    }
+
+    .model-option .mo-desc {
+        font-size: .78rem;
+        color: var(--muted);
+        line-height: 1.4;
+    }
+
+    /* badge do modelo usado */
+    .model-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: .3rem;
+        background: #ede9fe;
+        color: var(--primary);
+        font-size: .78rem;
+        font-weight: 700;
+        padding: .2rem .65rem;
+        border-radius: 999px;
+        border: 1px solid #c4b5fd;
+    }
+
+    /* ── Result sections ── */
+    .result-wrapper { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    /* Meta bar */
+    .meta-bar {
+        background: var(--primary-light);
+        border: 1px solid #c4b5fd;
+        border-radius: var(--radius);
+        padding: 1rem 1.25rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .meta-item { font-size: .85rem; }
+    .meta-item span { font-weight: 600; color: var(--primary); }
+
+    /* Grade badge */
+    .grade-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        font-weight: 700;
+        font-size: 1rem;
+        padding: .35rem .9rem;
+        border-radius: 999px;
+    }
+
+    .grade-high  { background: var(--green-light);  color: #065f46; }
+    .grade-mid   { background: var(--amber-light);  color: #92400e; }
+    .grade-low   { background: var(--red-light);    color: #991b1b; }
+
+    /* Section cards */
+    .section-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+    }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: .6rem;
+        padding: .85rem 1.25rem;
+        border-bottom: 1px solid var(--border);
+        font-weight: 700;
+        font-size: .95rem;
+    }
+
+    .section-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+
+    .icon-blue   { background: #dbeafe; }
+    .icon-green  { background: var(--green-light); }
+    .icon-amber  { background: var(--amber-light); }
+    .icon-purple { background: var(--primary-light); }
+
+    .section-body { padding: 1.25rem; }
+
+    /* Título card */
+    .title-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.25rem 1.5rem;
+        box-shadow: var(--shadow);
+    }
+
+    .title-card h2 {
+        font-size: 1.3rem;
+        color: var(--primary);
+        margin-bottom: .75rem;
+    }
+
+    /* Pontos chave */
+    .pontos-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    .pontos-list li {
+        display: flex;
+        gap: .6rem;
+        align-items: flex-start;
+        font-size: .93rem;
+    }
+
+    .pontos-list li::before {
+        content: "▸";
+        color: var(--primary);
+        font-size: .9rem;
+        margin-top: .1rem;
+        flex-shrink: 0;
+    }
+
+    /* Explicação conceitual */
+    .conceitual-item {
+        border-left: 3px solid var(--primary);
+        padding: .65rem .75rem .65rem 1rem;
+        margin-bottom: .85rem;
+        background: var(--bg);
+        border-radius: 0 8px 8px 0;
+        font-size: .93rem;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+
+    .conceitual-item:last-child { margin-bottom: 0; }
+
+    .conceitual-item strong {
+        display: block;
+        color: var(--primary);
+        margin-bottom: .3rem;
+        font-size: .92rem;
+    }
+
+    /* Exemplos práticos */
+    .exemplo-card {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+
+    .exemplo-card:last-child { margin-bottom: 0; }
+
+    .exemplo-title {
+        background: var(--green-light);
+        padding: .65rem 1rem;
+        font-weight: 700;
+        font-size: .92rem;
+        color: #065f46;
+        border-bottom: 1px solid #a7f3d0;
+    }
+
+    .exemplo-body { padding: .9rem 1rem; }
+
+    .steps-label {
+        font-size: .8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        color: var(--muted);
+        margin-bottom: .5rem;
+        margin-top: .6rem;
+    }
+
+    .steps-list {
+        list-style: none;
+        counter-reset: steps;
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+    }
+
+    .steps-list li {
+        counter-increment: steps;
+        display: flex;
+        gap: .65rem;
+        align-items: flex-start;
+        font-size: .91rem;
+    }
+
+    .steps-list li::before {
+        content: counter(steps);
+        background: var(--primary);
+        color: #fff;
+        font-size: .75rem;
+        font-weight: 700;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: .15rem;
+    }
+
+    .observar-box {
+        background: var(--amber-light);
+        border-left: 3px solid var(--amber);
+        border-radius: 0 8px 8px 0;
+        padding: .55rem .85rem;
+        font-size: .88rem;
+        margin-top: .75rem;
+    }
+
+    .link-exp {
+        font-size: .82rem;
+        color: var(--muted);
+        margin-top: .5rem;
+        font-style: italic;
+    }
+
+    /* Perguntas reflexivas */
+    .perguntas-list {
+        list-style: none;
+        counter-reset: perguntas;
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+    }
+
+    .perguntas-list li {
+        counter-increment: perguntas;
+        display: flex;
+        gap: .75rem;
+        align-items: flex-start;
+        background: var(--bg);
+        border-radius: 8px;
+        padding: .7rem .9rem;
+        font-size: .93rem;
+    }
+
+    .perguntas-list li::before {
+        content: counter(perguntas);
+        background: var(--amber);
+        color: #fff;
+        font-size: .8rem;
+        font-weight: 700;
+        min-width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: .1rem;
+    }
+
+    /* Error box */
+    .error-box {
+        background: var(--red-light);
+        border: 1px solid #fca5a5;
+        border-radius: var(--radius);
+        padding: 1rem 1.25rem;
+        color: #991b1b;
+        font-size: .93rem;
+    }
+
+    /* Empty state */
+    .empty-state {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: var(--muted);
+    }
+
+    .empty-state .emoji { font-size: 2.5rem; margin-bottom: .75rem; }
+    .empty-state p { font-size: .95rem; }
+</style>
+
+<div class="dash-header">
+    <h1>Dashboard</h1>
+    {% if response and response.grade is defined %}
+        {% set g = response.grade %}
+        <span class="grade-badge {% if g >= 8 %}grade-high{% elif g >= 5 %}grade-mid{% else %}grade-low{% endif %}">
+            ★ Nota: {{ g }}
+        </span>
+    {% endif %}
+</div>
+
+<!-- Formulário de tópico -->
 <form method="post">
-    <label>Tópico:<input type="text" name="topic"></label><br>
-    <button type="submit">Gerar conteúdo</button>
+    <div class="topic-form">
+        <div class="field">
+            <label for="topic">Tópico ou pergunta</label>
+            <input type="text" id="topic" name="topic" placeholder="Ex.: Como funciona a fotossíntese?" value="{{ question or '' }}" required>
+        </div>
+        <button type="submit">Gerar conteúdo</button>
+    </div>
+
+    <!-- Seletor de versão de prompt -->
+    <details class="model-details" id="modelDetails">
+        <summary class="model-summary">
+            Versão do prompt: <strong id="summaryLabel">Automático</strong>
+            <span class="summary-chevron">▾</span>
+        </summary>
+        <div class="model-dropdown-panel model-selector">
+
+            <input type="radio" name="prompt_model" id="pm_auto" value="auto" checked
+                   data-label="Automático">
+            <label class="model-option" for="pm_auto">
+                <div class="mo-tag">Auto</div>
+                <div class="mo-name">Automático</div>
+                <div class="mo-desc">Escolhe com base no perfil do aluno</div>
+            </label>
+
+            <input type="radio" name="prompt_model" id="pm_v1" value="v1"
+                   data-label="v1 · Baseline">
+            <label class="model-option" for="pm_v1">
+                <div class="mo-tag">v1</div>
+                <div class="mo-name">Baseline</div>
+                <div class="mo-desc">Resposta direta sem técnicas extras</div>
+            </label>
+
+            <input type="radio" name="prompt_model" id="pm_v2" value="v2"
+                   data-label="v2 · Persona + Contexto">
+            <label class="model-option" for="pm_v2">
+                <div class="mo-tag">v2</div>
+                <div class="mo-name">Persona + Contexto</div>
+                <div class="mo-desc">Professor experiente adaptado ao perfil</div>
+            </label>
+
+            <input type="radio" name="prompt_model" id="pm_v3" value="v3"
+                   data-label="v3 · Chain-of-Thought">
+            <label class="model-option" for="pm_v3">
+                <div class="mo-tag">v3</div>
+                <div class="mo-name">Chain-of-Thought</div>
+                <div class="mo-desc">Raciocínio estruturado passo a passo</div>
+            </label>
+
+            <input type="radio" name="prompt_model" id="pm_v4" value="v4"
+                   data-label="v4 · Visual">
+            <label class="model-option" for="pm_v4">
+                <div class="mo-tag">v4</div>
+                <div class="mo-name">Visual</div>
+                <div class="mo-desc">Chain-of-thought com geração de imagens</div>
+            </label>
+
+        </div>
+    </details>
+
+    <script>
+        const details = document.getElementById('modelDetails');
+        const label   = document.getElementById('summaryLabel');
+        document.querySelectorAll('input[name="prompt_model"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                label.textContent = radio.dataset.label;
+                details.open = false;
+            });
+        });
+    </script>
 </form>
+
+<!-- Resultado -->
 {% if response %}
-<h3>Resultado</h3>
-<pre>{{ response|tojson(indent=2) }}</pre>
+
+    {% if response.error is defined %}
+        <div class="error-box">
+            <strong>Erro ao gerar conteúdo:</strong> {{ response.error }}
+        </div>
+
+    {% else %}
+        {% set out = response.output %}
+        {% set inp = response.input %}
+
+        <div class="result-wrapper">
+
+            <!-- Meta bar -->
+            <div class="meta-bar">
+                {% if inp and inp.topico %}
+                <div class="meta-item">Tópico: <span>{{ inp.topico }}</span></div>
+                {% endif %}
+                {% if inp and inp['nivel de complexidade'] %}
+                <div class="meta-item">Nível: <span>{{ inp['nivel de complexidade'] }}</span></div>
+                {% endif %}
+                {% if inp and inp.requested_content %}
+                <div class="meta-item">Seções: <span>{{ inp.requested_content | join(', ') }}</span></div>
+                {% endif %}
+                {% if response.prompt_model %}
+                <div class="meta-item">
+                    Prompt: <span class="model-badge">{{ response.prompt_model }}</span>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Título + Pontos chave -->
+            {% if out %}
+            <div class="title-card">
+                {% if out.titulo %}
+                <h2>{{ out.titulo }}</h2>
+                {% endif %}
+
+                {% if out.pontos_chave %}
+                <ul class="pontos-list">
+                    {% for ponto in out.pontos_chave %}
+                    <li>{{ ponto }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+
+            <!-- Explicação Conceitual -->
+            {% set explicacao = out.explicacao_conceitual or out.explicacao or none %}
+            {% if explicacao %}
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-icon icon-blue">📖</div>
+                    Explicação Conceitual
+                </div>
+                <div class="section-body">
+                    {% for item in explicacao %}
+                        {% if item is mapping %}
+                            <div class="conceitual-item">
+                                {% if item.Titulo %}<strong>{{ item.Titulo }}</strong>{% endif %}
+                                {% if item.Conteudo %}{{ item.Conteudo }}{% endif %}
+                            </div>
+                        {% else %}
+                            <div class="conceitual-item">{{ item }}</div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Exemplos Práticos -->
+            {% if out.pratical_examples %}
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-icon icon-green">🔬</div>
+                    Exemplos Práticos
+                </div>
+                <div class="section-body">
+                    {% for ex in out.pratical_examples %}
+                    <div class="exemplo-card">
+                        <div class="exemplo-title">
+                            {{ ex.titulo or ex.Titulo or 'Exemplo' }}
+                        </div>
+                        <div class="exemplo-body">
+
+                            {% if ex.Conteudo %}
+                            {# Formato simples: {Titulo, Conteudo} #}
+                            <p style="font-size:.93rem;white-space:pre-wrap;">{{ ex.Conteudo }}</p>
+
+                            {% else %}
+                            {# Formato estruturado: objetivo, como_fazer, o_que_esperar #}
+                            {% if ex.objetivo %}
+                            <p style="font-size:.9rem;color:var(--muted);margin-bottom:.5rem;">{{ ex.objetivo }}</p>
+                            {% endif %}
+
+                            {% set passos = ex.como_fazer or none %}
+                            {% if passos %}
+                            <div class="steps-label">Como fazer</div>
+                            <ol class="steps-list">
+                                {% for passo in passos %}
+                                <li>{{ passo }}</li>
+                                {% endfor %}
+                            </ol>
+                            {% endif %}
+
+                            {% set obs = ex.o_que_esperar or ex.o_que_observar or none %}
+                            {% if obs %}
+                            <div class="observar-box">
+                                <strong>O que observar:</strong> {{ obs }}
+                            </div>
+                            {% endif %}
+
+                            {% if ex.ligacao_com_explicacao %}
+                            <p class="link-exp">{{ ex.ligacao_com_explicacao }}</p>
+                            {% endif %}
+                            {% endif %}
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Perguntas Reflexivas -->
+            {% set perguntas = out.reflective_questions or out.reflective_question or none %}
+            {% if perguntas %}
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-icon icon-amber">💭</div>
+                    Perguntas de Reflexão
+                </div>
+                <div class="section-body">
+                    <ol class="perguntas-list">
+                        {% for q in perguntas %}
+                        <li>
+                            {% if q is mapping %}
+                                {% if q.Titulo %}<strong>{{ q.Titulo }}</strong> — {% endif %}
+                                {% if q.Conteudo %}{{ q.Conteudo }}{% endif %}
+                            {% else %}
+                                {{ q }}
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Resumo Visual (imagens) -->
+            {% if images %}
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-icon icon-purple">🖼️</div>
+                    Resumo Visual
+                </div>
+                <div class="section-body" style="display:flex;flex-wrap:wrap;gap:1rem;">
+                    {% for img in images %}
+                    {% if img %}
+                    <img src="data:image/png;base64,{{ img }}"
+                         alt="Imagem gerada"
+                         style="max-width:100%;border-radius:8px;border:1px solid var(--border);">
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% endif %}{# end if out #}
+
+        </div>{# end result-wrapper #}
+    {% endif %}
+
+{% else %}
+    <!-- Empty state -->
+    <div class="empty-state">
+        <div class="emoji">💡</div>
+        <p>Digite um tópico acima e clique em <strong>Gerar conteúdo</strong><br>para receber uma explicação personalizada.</p>
+    </div>
 {% endif %}
+
 {% endblock %}

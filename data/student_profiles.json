@@ -47,5 +47,12 @@
         "nivel de conhecimento": "iniciante",
         "estilo de aprendizagem": "leitura-escrita",
         "senha": "83dbef1f87bac650d5cd57ee6fbc384d6fe9b15860ed374ab9b1be65850c51fd"
+    },
+    "visual_learner123": {
+        "name": "Visulear",
+        "idade": "5",
+        "nivel de conhecimento": "iniciante",
+        "estilo de aprendizagem": "visual",
+        "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
     }
 }
