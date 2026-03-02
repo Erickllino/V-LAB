@@ -1,6 +1,84 @@
 {
-    "titulo": "",
-    "explicacao": "",
-    "pontos_chave": [],
-    "nivel_complexidade": ""
+    "input": {
+        "pergunta": "Me explique a teoria da Terra Plana",
+        "topico": "Ci\u00eancias / Astronomia / Pensamento cr\u00edtico",
+        "nivel de complexidade": "Intermedi\u00e1rio",
+        "requested_content": [
+            "pontos_chave",
+            "conceptual_explanation",
+            "pratical_examples",
+            "reflective_questions"
+        ]
+    },
+    "output": {
+        "titulo": "Teoria da Terra Plana: o que afirma, por que convence algumas pessoas e como avali\u00e1-la criticamente",
+        "pontos_chave": [
+            "A \u201cTerra Plana\u201d \u00e9 um conjunto de cren\u00e7as que rejeita o modelo cient\u00edfico da Terra aproximadamente esf\u00e9rica e prop\u00f5e que a Terra seria um disco (ou outra forma n\u00e3o-esf\u00e9rica).",
+            "N\u00e3o existe um \u00fanico modelo: vers\u00f5es variam (borda de gelo, domo/firmamento, Sol e Lua pequenos e pr\u00f3ximos, etc.).",
+            "A ideia se sustenta muito em desconfian\u00e7a de institui\u00e7\u00f5es (ag\u00eancias espaciais, universidades), leitura seletiva de evid\u00eancias e interpreta\u00e7\u00f5es alternativas de observa\u00e7\u00f5es do dia a dia.",
+            "A ci\u00eancia avalia modelos pelo conjunto de evid\u00eancias: previs\u00f5es consistentes, medi\u00e7\u00f5es repet\u00edveis e explica\u00e7\u00f5es que funcionem ao mesmo tempo para muitos fen\u00f4menos (sombra, fusos hor\u00e1rios, esta\u00e7\u00f5es, sat\u00e9lites, navega\u00e7\u00e3o, etc.).",
+            "O modelo esf\u00e9rico (mais precisamente, um geoide) explica de forma integrada e quantitativa um grande n\u00famero de observa\u00e7\u00f5es independentes.",
+            "\u00c9 \u00fatil separar: (1) o que os terraplanistas afirmam, (2) quais \u201cevid\u00eancias\u201d apresentam, (3) como testar e comparar explica\u00e7\u00f5es.",
+            "Pensamento cr\u00edtico envolve verificar fontes, medir, tentar refutar a pr\u00f3pria hip\u00f3tese e ver se ela faz previs\u00f5es melhores que alternativas."
+        ],
+        "conceptual_explanation": [
+            {
+                "Titulo": "1) O que \u00e9 a \u201cTeoria da Terra Plana\u201d (como movimento e como modelo)",
+                "Conteudo": "A \u201cTerra Plana\u201d n\u00e3o \u00e9 uma teoria cient\u00edfica no sentido formal (um sistema bem testado e aceito pela comunidade cient\u00edfica), mas sim um conjunto de propostas alternativas ao formato esf\u00e9rico da Terra. Em geral, afirma-se que a Terra \u00e9 um plano (frequentemente descrito como um disco), \u00e0s vezes cercado por uma \u201cmuralha de gelo\u201d (Ant\u00e1rtida) e coberto por um domo. Como n\u00e3o h\u00e1 um padr\u00e3o \u00fanico, diferentes defensores explicam Sol, Lua e estrelas de maneiras distintas. Para estudar o tema com clareza, \u00e9 importante tratar o terraplanismo como: (a) um modelo sobre o mundo f\u00edsico e (b) um fen\u00f4meno social/epistemol\u00f3gico (como pessoas formam cren\u00e7as e confiam em autoridades). Para ver como esse modelo tenta explicar o cotidiano, observe os exemplos pr\u00e1ticos em \"1\" e \"2\" em pratical_examples."
+            },
+            {
+                "Titulo": "2) Principais afirma\u00e7\u00f5es e argumentos comuns usados por terraplanistas",
+                "Conteudo": "Alguns argumentos recorrentes s\u00e3o: (i) \u201co horizonte parece plano\u201d; (ii) \u201cn\u00e3o sentimos a Terra girar\u201d; (iii) \u201ccurvatura n\u00e3o \u00e9 vis\u00edvel\u201d em certas fotos; (iv) \u201c\u00e1guas sempre nivelam\u201d e, portanto, \u201cn\u00e3o curvam\u201d; (v) suspeitas de conspira\u00e7\u00e3o envolvendo ag\u00eancias espaciais e institui\u00e7\u00f5es. Esses argumentos costumam partir de intui\u00e7\u00f5es do dia a dia e de limites de percep\u00e7\u00e3o (por exemplo, a curvatura da Terra \u00e9 pequena em escalas humanas e a rota\u00e7\u00e3o \u00e9 uniforme, ent\u00e3o n\u00e3o \u00e9 percebida diretamente). Um ponto importante de pensamento cr\u00edtico \u00e9 diferenciar apar\u00eancia imediata de medi\u00e7\u00e3o: algo pode parecer plano localmente e ainda ser curvo em escala maior. Os exemplos pr\u00e1ticos \"1\" (horizonte) e \"3\" (sombra/rel\u00f3gio solar) ajudam a conectar intui\u00e7\u00e3o com teste."
+            },
+            {
+                "Titulo": "3) Como a ci\u00eancia decide entre modelos: evid\u00eancia, previs\u00f5es e consist\u00eancia",
+                "Conteudo": "A ci\u00eancia compara modelos pelo quanto eles explicam e prev\u00eaem com precis\u00e3o, usando medi\u00e7\u00f5es reproduz\u00edveis. Um modelo forte precisa explicar simultaneamente muitos fen\u00f4menos: fusos hor\u00e1rios, mudan\u00e7as de constela\u00e7\u00f5es por latitude, dura\u00e7\u00e3o do dia ao longo do ano, esta\u00e7\u00f5es, eclipses, rotas de avi\u00f5es, comportamento de sat\u00e9lites/GPS, sombras em lugares diferentes, etc. O modelo esf\u00e9rico faz previs\u00f5es quantitativas (por exemplo, \u00e2ngulos de sombra em diferentes latitudes; ver pratical_examples \"3\") e se mant\u00e9m consistente com m\u00faltiplas linhas de evid\u00eancia independentes. Em contraste, vers\u00f5es terraplanistas frequentemente precisam de explica\u00e7\u00f5es ad hoc (ajustes caso a caso) para fen\u00f4menos diferentes, o que diminui poder explicativo e previsivo."
+            },
+            {
+                "Titulo": "4) Por que a Terra pode parecer plana localmente (e por que isso n\u00e3o decide a forma global)",
+                "Conteudo": "Em escalas pequenas, a curvatura de uma esfera grande \u00e9 dif\u00edcil de perceber: em alguns quil\u00f4metros, a superf\u00edcie parece \u201creta\u201d aos nossos olhos, e o horizonte parece plano. Isso \u00e9 compat\u00edvel com uma Terra grande e aproximadamente esf\u00e9rica. A quest\u00e3o n\u00e3o \u00e9 \u201cparece ou n\u00e3o parece\u201d, mas sim \u201co que as medi\u00e7\u00f5es mostram em diferentes escalas?\u201d. Uma boa estrat\u00e9gia \u00e9 usar medi\u00e7\u00f5es indiretas: por exemplo, comparar sombras ao meio-dia em cidades diferentes no mesmo dia (pratical_examples \"3\") ou observar a mudan\u00e7a de altura de constela\u00e7\u00f5es ao viajar para norte/sul (pratical_examples \"4\")."
+            },
+            {
+                "Titulo": "5) Como avaliar criticamente argumentos e evitar armadilhas de racioc\u00ednio",
+                "Conteudo": "Algumas armadilhas comuns: (i) vi\u00e9s de confirma\u00e7\u00e3o (buscar s\u00f3 dados que parecem concordar); (ii) argumento de incredulidade (\u201cn\u00e3o consigo imaginar, logo \u00e9 falso\u201d); (iii) sele\u00e7\u00e3o de trechos/fotos sem contexto (\u00e2ngulo de c\u00e2mera, lente, refra\u00e7\u00e3o atmosf\u00e9rica); (iv) tratar aus\u00eancia de percep\u00e7\u00e3o como aus\u00eancia de efeito (\u201cn\u00e3o sinto girar\u201d); (v) explica\u00e7\u00f5es conspirat\u00f3rias amplas dif\u00edceis de testar. Para treinar esse olhar cr\u00edtico, use as perguntas reflexivas \"1\", \"2\" e \"4\": elas ajudam a checar o que seria uma evid\u00eancia decisiva, como medir e como lidar com discord\u00e2ncias entre observa\u00e7\u00e3o e interpreta\u00e7\u00e3o."
+            }
+        ],
+        "pratical_examples": [
+            {
+                "Titulo": "1) Experimento do horizonte (observa\u00e7\u00e3o guiada)",
+                "Conteudo": "Em um local alto (praia ampla, mirante ou pr\u00e9dio), observe um navio ou objeto distante se afastando. Em muitas situa\u00e7\u00f5es, a parte inferior some antes da superior. Terraplanistas frequentemente atribuem isso apenas \u00e0 perspectiva; j\u00e1 o modelo esf\u00e9rico prev\u00ea esse comportamento como efeito geom\u00e9trico (com influ\u00eancia adicional de refra\u00e7\u00e3o). Para tornar o teste mais cuidadoso, compare em diferentes condi\u00e7\u00f5es (ar mais quente/frio, diferentes alturas de observa\u00e7\u00e3o) e registre v\u00eddeos. Pergunta \u00fatil: ao aumentar a altura de observa\u00e7\u00e3o, o objeto \u201creaparece\u201d de forma compat\u00edvel com geometria? (Conecte com reflective_questions \"2\")."
+            },
+            {
+                "Titulo": "2) Teste simples de escala: \u201cparece plano\u201d vs \u201c\u00e9 plano\u201d",
+                "Conteudo": "Use uma bola grande (ou uma laranja) e aproxime o olho: uma pequena regi\u00e3o sempre parecer\u00e1 quase plana. Marque uma \u00e1rea pequena com caneta e perceba como a curvatura fica dif\u00edcil de notar em escala reduzida. O objetivo n\u00e3o \u00e9 \u201cprovar\u201d a Terra esf\u00e9rica com uma bola, mas entender por que intui\u00e7\u00f5es locais n\u00e3o determinam a forma global."
+            },
+            {
+                "Titulo": "3) Sombras em cidades diferentes (ideia de Erat\u00f3stenes)",
+                "Conteudo": "Em um mesmo dia e hor\u00e1rio (pr\u00f3ximo do meio-dia solar), duas pessoas em cidades de latitudes diferentes medem o \u00e2ngulo da sombra de uma haste vertical (gn\u00f4mon). Se a Terra for aproximadamente esf\u00e9rica e os raios solares chegarem quase paralelos, os \u00e2ngulos diferem de modo relacionado \u00e0 dist\u00e2ncia entre as cidades, permitindo estimar a circunfer\u00eancia. Esse tipo de medi\u00e7\u00e3o conecta diretamente geometria com observa\u00e7\u00e3o. Reflita com reflective_questions \"1\" e \"3\": que resultado voc\u00ea esperaria em um modelo plano sem ajustes ad hoc?"
+            },
+            {
+                "Titulo": "4) Constela\u00e7\u00f5es e latitude (observa\u00e7\u00e3o do c\u00e9u)",
+                "Conteudo": "Ao viajar para o hemisf\u00e9rio sul, algumas constela\u00e7\u00f5es do norte ficam mais baixas ou desaparecem do c\u00e9u, e novas constela\u00e7\u00f5es se tornam vis\u00edveis. Al\u00e9m disso, a altura aparente do polo celeste muda com a latitude. Isso \u00e9 previsto naturalmente por um globo. Um exerc\u00edcio: compare mapas do c\u00e9u por latitude e registre fotos do mesmo objeto celeste em locais diferentes."
+            }
+        ],
+        "reflective_questions": [
+            {
+                "Titulo": "1) Evid\u00eancia decisiva e previs\u00f5es",
+                "Conteudo": "Que tipo de observa\u00e7\u00e3o ou medi\u00e7\u00e3o faria voc\u00ea mudar de ideia sobre o formato da Terra? O que seria uma \u201cprevis\u00e3o arriscada\u201d (que pode dar errado) para o modelo da Terra Plana e para o modelo esf\u00e9rico?"
+            },
+            {
+                "Titulo": "2) Controle de vari\u00e1veis e qualidade do teste",
+                "Conteudo": "No exemplo do horizonte (pratical_examples \"1\"), como voc\u00ea controlaria vari\u00e1veis como refra\u00e7\u00e3o atmosf\u00e9rica, zoom/lente da c\u00e2mera e altura do observador para evitar conclus\u00f5es apressadas?"
+            },
+            {
+                "Titulo": "3) Consist\u00eancia entre fen\u00f4menos",
+                "Conteudo": "Um mesmo modelo deveria explicar, ao mesmo tempo, fusos hor\u00e1rios, esta\u00e7\u00f5es, eclipses, rotas a\u00e9reas e a mudan\u00e7a de constela\u00e7\u00f5es com a latitude (pratical_examples \"4\"). Se um modelo precisa de explica\u00e7\u00f5es diferentes e desconectadas para cada fen\u00f4meno, o que isso sugere sobre sua for\u00e7a cient\u00edfica?"
+            },
+            {
+                "Titulo": "4) Fontes, confian\u00e7a e conspira\u00e7\u00f5es",
+                "Conteudo": "Quais crit\u00e9rios voc\u00ea usa para confiar ou desconfiar de uma fonte (institui\u00e7\u00f5es, cientistas, criadores de conte\u00fado)? Como diferenciar cr\u00edtica saud\u00e1vel de um argumento conspirat\u00f3rio imposs\u00edvel de testar?"
+            }
+        ]
+    },
+    "grade": 9.2
 }

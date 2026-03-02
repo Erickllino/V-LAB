@@ -112,9 +112,21 @@ def determine_prompt_model(user_id, question):
     se for leitura-escrita puxar uma função que formate a resposta em texto
     se for cinestésico puxar uma função que gere um video ou animação junto ao texto
     
+
+    profile:
+    nivel de conhecimento -> (iniciante/intermediario/avancado)
+    estilo de aprendizagem -> (visual/auditivo/leitura-escrita/cinestesico)
+
+
     """
     profile = get_user_profile(user_id)
-    return "v1"
+
+
+    if profile['estilo de aprendizagem'] == 'visual':
+        # Ver aqui modelos que tem geração de imagens 
+        return "v4"
+
+
 
     if profile['nivel de conhecimento'] == "iniciante":
         return "v1"
@@ -123,7 +135,7 @@ def determine_prompt_model(user_id, question):
     elif profile['nivel de conhecimento'] == "avancado":
         return "v3"
     else:
-        return "v0"
+        return "v1" # modelo baseline
 
 # Features de prompt engineering sendo usadas
 # (x) Output formating
@@ -262,7 +274,7 @@ def conceptual_explanation(user_id, question):
         }}
     }}
 
-    Todas as explicações conceituais devem estar na forma de: {"Titulo": "", "Conteudo": ""} 
+    Todas as explicações conceituais devem estar na forma de: {{"Titulo": "", "Conteudo": ""}} 
     """
     return pratical_prompt
 
@@ -277,11 +289,11 @@ def practical_examples(user_id, question):
         ...
         "output":{{
             ...
-            "pratical_examples": [{{"Titulo: "" ,"Conteudo": "" }}, ..."]
+            "pratical_examples": [{{"Titulo: "" ,"Conteudo": "" }}, ...]
         }}
     }}
 
-    Todos os exemplos praticos devem estar na forma de: {"Titulo": "", "Conteudo": ""}
+    Todos os exemplos praticos devem estar na forma de: {{"Titulo": "", "Conteudo": ""}}
     """
     return pratical_prompt
 
@@ -300,7 +312,7 @@ def reflection_questions(user_id, question):
         }}
     }}
     
-    Todas as perguntas reflexivas devem estar na forma de: {"Titulo": "", "Conteudo": ""}
+    Todas as perguntas reflexivas devem estar na forma de: {{"Titulo": "", "Conteudo": ""}}
     """
     return reflective_prompt
 
@@ -318,6 +330,8 @@ def visual_summary(user_id, question):
             "prompts_imagem": []
         }}
     }}
+    
+    Todos os prompts devem estar na forma de string dentro de uma lista: ["prompt1", "prompt2", ...]
     """
     return visual_prompt
 
@@ -345,7 +359,7 @@ def model_v2(profile, question, base_prompt):
 
 def model_v3(profile, question, base_prompt):
     prompt = f"""
-    Você é um professor experiente em Pedagogia. Explique a seguinte pergunta: {question} seguindo esta estrutura:
+    Você é um professor experiente com didática impecável. Explique a seguinte pergunta de forma extremamente tecnica, como se estivesse explicando para alguem que entende bem do assunto: {question} seguindo esta estrutura:
     1. Intuição inicial
     2. Conceito formal
     3. Exemplo guiado
@@ -357,13 +371,7 @@ def model_v3(profile, question, base_prompt):
     return prompt, response
 
 def model_v4(profile, question, base_prompt):
-    prompt = f"""Você é um professor experiente em Pedagogia. Explique a seguinte pergunta: {question} seguindo esta estrutura:
-    1. Intuição inicial
-    2. Conceito formal
-    3. Exemplo guiado
-    4. Conexão com conhecimento prévio
-
-
+    prompt = f"""Você é um professor experiente em Pedagogia. Explique a seguinte pergunta: {question} 
     """
     prompt = base_prompt + prompt
     response = generate_response(prompt)
@@ -718,7 +726,8 @@ def infer_engine(user, pergunta, prompt_model):
     cached_response = cache.get_cached_response(user, pergunta, prompt_model)
     if cached_response:
         print("Resposta encontrada no cache:")
-        print(cached_response)
+        
+        return cached_response
         
     else:
         print("Gerando nova resposta...")
