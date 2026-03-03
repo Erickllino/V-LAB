@@ -8,9 +8,11 @@ import base64
 # API do modelo de linguagem
 from api_key import key
 
-# Importando funções de manipulação de perfis de usuário
 from profiles import get_user_profile
 import cache
+from config import DATA_DIR, SAMPLES_DIR, init_storage
+
+init_storage()
 
 #Puxar a API
 from openai import OpenAI
@@ -557,19 +559,22 @@ def log_attempt(user_id, prompt):
         "timestamp": timestamp
     }
     log_data_str = json.dumps(log_data)
-    log_dir = os.path.join("data/malicious_attempts")
-    os.makedirs(log_dir, exist_ok=True)
-    log_file = os.path.join(log_dir, f"user_{user_id}_{timestamp}.json")
-    with open(log_file, "a") as f:
-        f.write(log_data_str + "\n")
+    try:
+        log_dir = os.path.join(DATA_DIR, "malicious_attempts")
+        os.makedirs(log_dir, exist_ok=True)
+        log_file = os.path.join(log_dir, f"user_{user_id}_{timestamp}.json")
+        with open(log_file, "a") as f:
+            f.write(log_data_str + "\n")
+    except OSError:
+        logging.warning("Não foi possível salvar log de tentativa maliciosa")
      
 def save_response_as_sample(response):
-    
-    # TODO:Check if response is on the right format (json):
-
-
-    with open("samples/response.json", "w") as f:
-        json.dump(response, f, indent=4)
+    try:
+        path = os.path.join(SAMPLES_DIR, 'response.json')
+        with open(path, "w") as f:
+            json.dump(response, f, indent=4)
+    except OSError:
+        logging.warning("Não foi possível salvar o sample (filesystem read-only?)")
 
 
 def save_response_to_history(user, pergunta, prompt, prompt_model, response, grade, timestamp=None):
@@ -593,12 +598,14 @@ def save_response_to_history(user, pergunta, prompt, prompt_model, response, gra
         "timestamp": timestamp
     }
 
-    # Salva a resposta em um arquivo JSON na pastas data/historico com o nome sendo o timestamp da resposta
-    base_dir = os.path.join("data", "historico")
-    os.makedirs(base_dir, exist_ok=True)
-    file_path = os.path.join(base_dir, f"response_{timestamp}.json")
-    with open(file_path, "w") as f:
-        json.dump(response_data, f, indent=4)
+    try:
+        base_dir = os.path.join(DATA_DIR, "historico")
+        os.makedirs(base_dir, exist_ok=True)
+        file_path = os.path.join(base_dir, f"response_{timestamp}.json")
+        with open(file_path, "w") as f:
+            json.dump(response_data, f, indent=4)
+    except OSError:
+        logging.warning("Não foi possível salvar o histórico (filesystem read-only?)")
 
 def save_image_to_history(images, user, timestamp=None):
     """
@@ -610,7 +617,7 @@ def save_image_to_history(images, user, timestamp=None):
     else:
         timestamp = int(timestamp)
 
-    base_dir = os.path.join("data", "historico")
+    base_dir = os.path.join(DATA_DIR, "historico")
     images_dir = os.path.join(base_dir, f"images_{timestamp}")
     os.makedirs(images_dir, exist_ok=True)
 

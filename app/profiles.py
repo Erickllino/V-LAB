@@ -2,20 +2,21 @@
 
 import hashlib
 import json
+import os
+from config import DATA_DIR
+
+PROFILES_FILE = os.path.join(DATA_DIR, 'student_profiles.json')
 
 
 def get_user_profile(user_id):
 
-    with open("data/student_profiles.json", "r") as f:
+    with open(PROFILES_FILE, "r") as f:
         profiles = json.load(f)
-    
+
     return profiles.get(user_id, None)
 
-def format_data(name,senha, idade, nivel_conhecimento, estilo_aprendizado, ):
-    
-    # fazer hash da senha aqui:
-    # hashed_password = hash_password(senha)
-    # TODO: implementar hash da senha
+def format_data(name, senha, idade, nivel_conhecimento, estilo_aprendizado):
+
     profile_data = {
         "name": name,
         "idade": idade,
@@ -24,7 +25,7 @@ def format_data(name,senha, idade, nivel_conhecimento, estilo_aprendizado, ):
         "senha": senha
     }
 
-    with open("data/student_profiles.json", "w") as f:
+    with open(PROFILES_FILE, "w") as f:
         json.dump({name: profile_data}, f, indent=4)
 
 def hash_password(password):
@@ -34,31 +35,29 @@ def register_user_profile(user_id, profile_data):
 
     # check if student_profiles.json exists, if not create it
     try:
-        with open("data/student_profiles.json", "r") as f:
+        with open(PROFILES_FILE, "r") as f:
             profiles = json.load(f)
     except FileNotFoundError:
         profiles = {}
 
-    # check if user_id already exists
     if user_id in profiles:
         raise ValueError("User ID already exists")
 
     profile_data["senha"] = hash_password(profile_data["senha"])
     profiles[user_id] = profile_data
 
-
-    with open("data/student_profiles.json", "w") as f:
+    with open(PROFILES_FILE, "w") as f:
         json.dump(profiles, f, indent=4)
 
 def delete_user_profile(user_id):
 
-    with open("data/student_profiles.json", "r") as f:
+    with open(PROFILES_FILE, "r") as f:
         profiles = json.load(f)
 
     if user_id in profiles:
         del profiles[user_id]
 
-    with open("data/student_profiles.json", "w") as f:
+    with open(PROFILES_FILE, "w") as f:
         json.dump(profiles, f, indent=4)
 
 

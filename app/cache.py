@@ -1,8 +1,9 @@
 import json
 import os
 import hashlib
+from config import DATA_DIR
 
-CACHE_FILE = "data/cache.json"
+CACHE_FILE = os.path.join(DATA_DIR, 'cache.json')
 
 def hash_content(content):
     return hashlib.sha256(content.encode()).hexdigest()

@@ -17,8 +17,9 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 try:
     import profiles as pf
     import prompt_engine as pe
+    import config
+    config.init_storage()
 except ImportError as exc:
-    # if we still fail, re-raise to make debugging easier
     raise
 
 
