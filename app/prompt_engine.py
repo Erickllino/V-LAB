@@ -101,7 +101,6 @@ iv. Output formatting: Especificar exatamente como deseja a resposta
 
 """
 
-#TODO: Implementar forma de determinar prompt_model
 
 def determine_prompt_model(user_id, question):
 
@@ -138,21 +137,6 @@ def determine_prompt_model(user_id, question):
         return "v3"
     else:
         return "v1" # modelo baseline
-
-# Features de prompt engineering sendo usadas
-# (x) Output formating
-# (x) Persona prompting
-# (x) Context setting
-# ( ) Chain-of-thought prompting
-#
-
-
-
-# v1: persona prompting + Context setting + Output formatting
-# v2: Context setting
-# v3: Chain-of-thought
-# v4: persona + chain-of-thought
-# v5: context setting + persona  (Procura a ideia da pergunta e cria um prompt com o llm sendo especialista no assunto, e o user com o perfil dele, para gerar uma resposta super personalizada)
 
 
 def run_prompt_model(user_id, question, prompt_model=None):
@@ -237,8 +221,6 @@ def run_prompt_model(user_id, question, prompt_model=None):
             visual = True
             base_prompt += visual_summary(user_id, question)
 
-    # TODO: Melhorar os modelos de prompt
-    # TODO: Colocar uma descrição dos modelos de prompt aqui
 
     # modelos que acomodam imagens
     if visual:
@@ -410,43 +392,6 @@ def model_v4(profile, question, base_prompt):
 
     return prompt, response_obj, images
 
-def parse_response(response):
-    # função para parsear a resposta do modelo, garantindo que esteja no formato esperado, e lidando com possíveis variações de formatação
-
-    if isinstance(response, str):
-        resp_text = response.strip()
-        if not resp_text:
-            raise ValueError("Empty response from generate_response")
-        try:
-            response_obj = json.loads(resp_text)
-        except json.JSONDecodeError:
-            try:
-                response_obj = json.loads(resp_text.replace("'", '"'))
-            except Exception:
-                logging.exception("Failed to parse JSON response from model_v4")
-                raise
-    elif isinstance(response, dict):
-        response_obj = response
-    try:
-        if isinstance(response, dict):
-            return response
-        elif isinstance(response, str):
-            resp_text = response.strip()
-            if not resp_text:
-                raise ValueError("Empty response from generate_response")
-            try:
-                response_obj = json.loads(resp_text)
-            except json.JSONDecodeError:
-                try:
-                    response_obj = json.loads(resp_text.replace("'", '"'))
-                except Exception:
-                    logging.exception("Failed to parse JSON response from model_v4")
-                    raise
-        else:
-            raise ValueError("Resposta em formato inesperado")
-    except Exception:
-        logging.exception("Failed to parse model response")
-        raise ValueError("Resposta do modelo não pôde ser interpretada")
 
 def grade_response(question, response):
     # implementar função que avalia a resposta gerada e dá um feedback para o modelo melhorar
@@ -476,7 +421,7 @@ Retorne somente a nota com o valor numerico, sem nada mais. O valor pode ser um 
 
 def check_input(user_id,prompt: str) -> str:
 
-    # TODO: implementar função para segurança do prompt, para evitar injeção de prompt ou outros ataques
+   
 
     """
     Teremos 4 camadas de proteção
@@ -578,7 +523,7 @@ def save_response_as_sample(response):
 
 
 def save_response_to_history(user, pergunta, prompt, prompt_model, response, grade, timestamp=None):
-    # TODO: add grade from grader function to the response data
+    
     if timestamp is None:
         timestamp = int(time.time())
     else:
@@ -776,6 +721,6 @@ def infer_engine(user, pergunta, prompt_model):
         
         return response, images
         
-# TODO: Adicionar um metodo para comparar prompts e determinar qual é o melhor
+
 
     

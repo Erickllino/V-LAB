@@ -1,102 +1,81 @@
-# V-Lab — Plataforma de Conteúdo Educativo com IA
+# V-Lab
 
-Plataforma que gera conteúdo educativo personalizado a partir de um tópico e do perfil do aluno, utilizando técnicas avançadas de engenharia de prompt com a API da OpenAI.
+Desafio técnico para o processo seletivo de estágio em IA e Engenharia de Prompt no V-Lab.
 
-Desenvolvido como desafio técnico para o processo seletivo de estágio em IA e Engenharia de Prompt no V-Lab.
+Demo: https://v-lab-chi.vercel.app/
 
 ---
 
-## Funcionalidades
+O sistema recebe um tópico e o perfil do aluno (idade, nível, estilo de aprendizagem) e gera conteúdo educativo personalizado via OpenAI. Dependendo do perfil, o conteúdo pode incluir explicação conceitual, exemplos práticos, perguntas de reflexão e imagens geradas por IA.
 
-- **Geração de 4 tipos de conteúdo** a partir de um único tópico:
-  - Explicação conceitual
-  - Exemplos práticos
-  - Perguntas de reflexão
-  - Resumo visual com imagens geradas por IA (para perfis visuais)
-- **4 versões de prompt** com técnicas distintas, selecionáveis pelo usuário ou automaticamente pelo perfil
-- **Avaliação automática** de qualidade da resposta (nota 0–10)
-- **Cache** para evitar chamadas desnecessárias à API
-- **Proteção contra prompt injection** com múltiplas camadas de segurança
-- **Histórico** de todas as gerações com timestamp
-- **Interface web** com Flask
-- **Testes automatizados** de construção de prompt
+Tem 4 versões de prompt com técnicas diferentes (baseline, persona + contexto, chain-of-thought, visual com imagens) — o modelo é escolhido automaticamente pelo perfil ou manualmente pelo usuário no dashboard. Cada resposta recebe uma nota de 0 a 10 gerada pelo próprio modelo.
 
 ---
 
 ## Setup
 
-**Pré-requisitos:** Conda instalado, chave de API da OpenAI.
+Precisa de Conda e uma chave da OpenAI.
 
 ```bash
-# 1. Clone o repositório
 git clone <url-do-repositorio>
 cd V-Lab
 
-# 2. Crie e ative o ambiente conda
 conda create -n V-Lab python=3.11
 conda activate V-Lab
-
-# 3. Instale as dependências
 pip install -r requirements.txt
 
-# 4. Configure as variáveis de ambiente
 cp .env.example .env
-# Edite o .env e adicione sua OPENAI_API_KEY e FLASK_SECRET_KEY
+# adicione OPENAI_API_KEY e FLASK_SECRET_KEY no .env
 ```
 
----
-
-## Como rodar
+Para rodar:
 
 ```bash
-# A partir da raiz do projeto
 conda activate V-Lab
 cd front
 python server.py
 ```
 
-Acesse `http://localhost:5000` no navegador.
+Abre em `http://localhost:5000`.
 
 ---
 
 ## Como usar
 
-1. **Registre uma conta** em `/register` — informe nome, idade, nível de conhecimento e estilo de aprendizagem
-2. **Faça login** com seu user ID e senha
-3. No **dashboard**, digite um tópico ou pergunta
-4. Escolha a versão do prompt (ou deixe em *Automático* para seleção pelo perfil)
-5. Clique em **Gerar conteúdo**
+1. Crie uma conta em `/register` com nome, idade, nível de conhecimento e estilo de aprendizagem
+2. Faça login
+3. No dashboard, escreva um tópico, escolha a versão do prompt (ou deixe no automático) e clique em gerar
 
-O sistema gera automaticamente os tipos de conteúdo mais adequados ao perfil, exibe a resposta formatada e salva o histórico em `data/historico/`.
+O histórico de cada geração fica em `data/historico/`.
 
 ---
 
-## Estrutura do projeto
+## Estrutura
 
 ```
 V-Lab/
 ├── app/
-│   ├── prompt_engine.py   # Motor de engenharia de prompt (núcleo do sistema)
-│   ├── profiles.py        # Gerenciamento de perfis de alunos
-│   ├── cache.py           # Sistema de cache com hash
-│   ├── api_key.py         # Carregamento seguro da chave de API
-│   └── main.py            # CLI (Não mais utilizado)
+│   ├── prompt_engine.py   # núcleo — monta prompts, chama a API, avalia respostas
+│   ├── profiles.py        # leitura e escrita de perfis de alunos
+│   ├── cache.py           # cache por hash para evitar chamadas repetidas
+│   ├── config.py          # paths (adapta para /tmp/ no Vercel)
+│   └── api_key.py         # carrega a chave do .env
 ├── front/
-│   ├── server.py          # Servidor escrito em Flask
+│   ├── server.py          # Flask
 │   └── templates/
 │       ├── base.html
 │       ├── dashboard.html
 │       ├── login.html
 │       └── register.html
 ├── data/
-│   ├── student_profiles.json      # Perfis dos alunos salvo
-│   ├── cache.json                 # Cache de respostas
-│   ├── historico/                 # Histórico de tudo que foi gerado (JSON + imagens)
-│   └── malicious_attempts/        # Log de tentativas de prompt injection
+│   ├── student_profiles.json
+│   ├── cache.json
+│   ├── historico/
+│   └── malicious_attempts/
 ├── tests/
-│   └── test_prompts.py    # Testes de construção de prompt
+│   └── test_prompts.py
 ├── samples/
-│   └── response.json      # Exemplo de output gerado
+│   └── response.json
 ├── .env.example
 ├── requirements.txt
 └── PROMPT_ENGINEERING_NOTES.md
@@ -106,24 +85,16 @@ V-Lab/
 
 ## Perfis de aluno
 
-Cada perfil contém necessariamente:
-
-| Campo                    | Valores possíveis                                      |
-| ------------------------ | ------------------------------------------------------ |
-| `nome do aluno`          | String com o nome                                      |
-| `idade`                  | número inteiro                                         |
-| `nivel de conhecimento`  | `iniciante`, `intermediario`, `avancado`               |
+| Campo | Valores |
+|---|---|
+| `nivel de conhecimento` | `iniciante`, `intermediario`, `avancado` |
 | `estilo de aprendizagem` | `visual`, `auditivo`, `leitura-escrita`, `cinestesico` |
-
-
 
 ---
 
 ## Exemplo de output
 
-Veja `samples/response.json` para um exemplo completo.
-
-exemplo:
+Output completo em `samples/response.json`. Estrutura básica:
 
 ```json
 {
@@ -153,10 +124,12 @@ conda activate V-Lab
 python -m unittest tests/test_prompts.py -v
 ```
 
-7 testes verificam que cada versão de prompt contém as técnicas esperadas e que versões distintas geram prompts estruturalmente diferentes — sem nenhuma chamada real à API.
+6 testes de construção de prompt, sem chamadas reais à API.
 
 ---
 
 ## Deploy
 
-O arquivo `vercel.json` está configurado para deploy no Vercel apontando para `front/server.py`. Basta conectar o repositório ao Vercel e definir as variáveis `OPENAI_API_KEY` e `FLASK_SECRET_KEY` nas configurações do projeto.
+Está no Vercel em https://v-lab-chi.vercel.app/
+
+Para subir uma instância própria: conecte o repositório ao Vercel e defina `OPENAI_API_KEY` e `FLASK_SECRET_KEY` nas variáveis de ambiente do projeto.
