@@ -6,6 +6,12 @@ import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'app'))
 
+# Testa a construção dos prompts sem chamar a API real.
+# O patch substitui generate_response por uma função falsa que retorna
+# um JSON mínimo válido, permitindo verificar apenas o conteúdo dos prompts gerados.
+
+
+
 from prompt_engine import model_v1, model_v2, model_v3
 
 FAKE_RESPONSE = json.dumps({
